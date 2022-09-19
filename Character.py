@@ -17,13 +17,14 @@ class Player(Character):
     super().__init__()
 
 # function to assign a character to the player
-def select_player(choice):
-    print('Please choose a character:\n 1 = Bella\n 2 = Monty\n 3 = Sayo\n 4 = Dave\n')
-    if choice == '1':
-        pass # set character as Bella
-    elif choice == '2':
-        pass # set character as Monty
-    elif choice == '3':
-        pass # set character as Sayo
-    else:
-        pass # set character as Dave
+def select_player():
+    while True:
+        choice = input('Please choose a character:\n 1 = Bella\n 2 = Monty\n 3 = Sayo\n 4 = Dave\n')
+        if choice == '1':
+            pass # set character as Bella
+        elif choice == '2':
+            pass # set character as Monty
+        elif choice == '3':
+            pass # set character as Sayo
+        else:
+            pass # set character as Dave
