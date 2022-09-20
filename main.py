@@ -17,9 +17,15 @@ def main(stdscr):
             color = yellow_and_black
         
         stdscr.addstr('Python Street Fight!\n\n', color)
-        stdscr.addstr('Press Enter to continue')
+        stdscr.addstr('Press any key')
         stdscr.refresh()
         time.sleep(0.2)
+
+    while True:
+        key = stdscr.getkey()
+        if key == curses.KEY_ENTER:
+            break
+
     stdscr.getch()
 # stdscr.addstr(0, 0, 'Please select a character:')
 curses.wrapper(main)
