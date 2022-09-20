@@ -39,4 +39,3 @@ start_menu.main_menu()
 
 # Calls the function to randomly assign an opponent
 start_menu.select_opponent()
-

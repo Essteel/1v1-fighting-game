@@ -8,8 +8,9 @@ monty_mischief = character.Character('Monty Mischief', 200, 40, 70)
 sayo_swift = character.Character('Sayo Swift', 200, 50, 60)
 dave_danger = character.Character('Dave Danger', 175, 50, 80)
 
-# Create empty player object
+# Create empty player and opponent objects
 player = character.Character('', 0, 0, 0)
+opponent = character.Character('', 0, 0, 0)
 
 # Function that will allow user to view a list of characters and their stats
 def get_character_stats():
@@ -49,8 +50,27 @@ def select_opponent():
     for i in opponent_options:
         if i != player_choice:
             opponent_list.append(i)
-    opponent = random.choice(opponent_list)
-    print(opponent)
+    opponent_choice = random.choice(opponent_list)
+    if opponent_choice == 'Bella Brawler':
+        opponent.name = bella_brawler.name
+        opponent.max_hp = bella_brawler.max_hp
+        opponent.basic_attack = bella_brawler.basic_attack
+        opponent.special_attack = bella_brawler.special_attack
+    elif opponent_choice == 'Monty Mischief':
+        opponent.name = monty_mischief.name
+        opponent.max_hp = monty_mischief.max_hp
+        opponent.basic_attack = monty_mischief.basic_attack
+        opponent.special_attack = monty_mischief.special_attack
+    elif opponent_choice == 'Sayo Swift':
+        opponent.name = sayo_swift.name
+        opponent.max_hp = sayo_swift.max_hp
+        opponent.basic_attack = sayo_swift.basic_attack
+        opponent.special_attack = sayo_swift.special_attack
+    elif opponent_choice == 'Dave Danger':
+        opponent.name = dave_danger.name
+        opponent.max_hp = dave_danger.max_hp
+        opponent.basic_attack = dave_danger.basic_attack
+        opponent.special_attack = dave_danger.special_attack
 
 # Code to run the main menu for viewing character stats and character selection
 def main_menu():
@@ -106,6 +126,3 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
-
-print(player.__dict__)
-select_opponent()
