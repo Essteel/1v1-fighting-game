@@ -1,5 +1,6 @@
 from simple_term_menu import TerminalMenu
 import Character
+import random
 
 # Create character objects
 bella_brawler = Character.Character('Bella Brawler', 350, 30, 50)
@@ -17,7 +18,7 @@ def get_character_stats():
     print(sayo_swift.__dict__)
     print(dave_danger.__dict__)
 
-# Function for character selection
+# Function for player character selection
 def select_character(character):
     if character == bella_brawler:
         player.name = bella_brawler.name
@@ -39,6 +40,17 @@ def select_character(character):
         player.max_hp = dave_danger.max_hp
         player.basic_attack = dave_danger.basic_attack
         player.special_attack = dave_danger.special_attack
+
+# Function for opponent character selection
+def select_opponent():
+    opponent_options = [bella_brawler.name, monty_mischief.name, sayo_swift.name, dave_danger.name]
+    opponent_list = []
+    player_choice = player.name
+    for i in opponent_options:
+        if i != player_choice:
+            opponent_list.append(i)
+    opponent = random.choice(opponent_list)
+    print(opponent)
 
 # Code to run the main menu for viewing character stats and character selection
 def main_menu():
@@ -79,13 +91,13 @@ def main_menu():
             while char_menu_back == False:
                 char_options_sel = char_menu.show()
                 if char_options_sel == 0:
-                    select_character(bella_brawler)
+                    return select_character(bella_brawler)
                 elif char_options_sel == 1:
-                    select_character(monty_mischief)
+                    return select_character(monty_mischief)
                 elif char_options_sel == 2:
-                    select_character(sayo_swift)
+                    return select_character(sayo_swift)
                 elif char_options_sel == 3:
-                    select_character(dave_danger)
+                    return select_character(dave_danger)
                 elif char_options_sel == 4:
                     char_menu_back = True
             char_menu_back = False
@@ -96,3 +108,4 @@ if __name__ == "__main__":
     main_menu()
 
 print(player.__dict__)
+select_opponent()
