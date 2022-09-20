@@ -1,15 +1,15 @@
 from simple_term_menu import TerminalMenu
-import Character
+import classes.character as character
 import random
 
 # Create character objects
-bella_brawler = Character.Character('Bella Brawler', 350, 30, 50)
-monty_mischief = Character.Character('Monty Mischief', 200, 40, 70)
-sayo_swift = Character.Character('Sayo Swift', 200, 50, 60)
-dave_danger = Character.Character('Dave Danger', 175, 50, 80)
+bella_brawler = character.Character('Bella Brawler', 350, 30, 50)
+monty_mischief = character.Character('Monty Mischief', 200, 40, 70)
+sayo_swift = character.Character('Sayo Swift', 200, 50, 60)
+dave_danger = character.Character('Dave Danger', 175, 50, 80)
 
 # Create empty player object
-player = Character.Character('', 0, 0, 0)
+player = character.Character('', 0, 0, 0)
 
 # Function that will allow user to view a list of characters and their stats
 def get_character_stats():

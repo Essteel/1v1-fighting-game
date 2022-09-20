@@ -31,3 +31,12 @@ import time
 # curses.wrapper(main)
 
 # Character.get_character_stats()
+
+import start_menu
+
+# Executes the main menu for viewing character stats and character selection
+start_menu.main_menu()
+
+# Calls the function to randomly assign an opponent
+start_menu.select_opponent()
+
