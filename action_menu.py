@@ -24,7 +24,7 @@ def action_menu():
             pass # function to perform basic attack
         elif action_options_sel == 1:
             pass # function to perform special attack
-        elif action_options_sel == 2:
+        if action_options_sel == 2:
             while item_menu_back == False:
                 item_options_sel = item_menu.show()
                 if item_options_sel == 0:
@@ -33,7 +33,7 @@ def action_menu():
                     pass # function to use power up if held
                 elif item_options_sel == 2:
                     item_menu_back = True
-                item_menu_back = False
+            item_menu_back = False
         elif action_options_sel == 3:
             quit_menu = True
 
