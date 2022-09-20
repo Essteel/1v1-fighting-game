@@ -1,20 +1,46 @@
-import time
 from simple_term_menu import TerminalMenu
 import Character
 
-# # Create character objects
-bella_brawler = Character.Character('Bella Brawler', 350, 350, 30, 50)
-monty_mischief = Character.Character('Monty Mischief', 200, 200, 40, 70)
-sayo_swift = Character.Character('Sayo Swift', 200, 200, 50, 60)
-dave_danger = Character.Character('Dave Danger', 175, 175, 50, 80)
+# Create character objects
+bella_brawler = Character.Character('Bella Brawler', 350, 30, 50)
+monty_mischief = Character.Character('Monty Mischief', 200, 40, 70)
+sayo_swift = Character.Character('Sayo Swift', 200, 50, 60)
+dave_danger = Character.Character('Dave Danger', 175, 50, 80)
 
-# function that will allow user to view a list of characters and their stats
+# Create empty player object
+player = Character.Character('', 0, 0, 0)
+
+# Function that will allow user to view a list of characters and their stats
 def get_character_stats():
     print(bella_brawler.__dict__)
     print(monty_mischief.__dict__)
     print(sayo_swift.__dict__)
     print(dave_danger.__dict__)
 
+# Function for character selection
+def select_character(character):
+    if character == bella_brawler:
+        player.name = bella_brawler.name
+        player.max_hp = bella_brawler.max_hp
+        player.basic_attack = bella_brawler.basic_attack
+        player.special_attack = bella_brawler.special_attack
+    elif character == monty_mischief:
+        player.name = monty_mischief.name
+        player.max_hp = monty_mischief.max_hp
+        player.basic_attack = monty_mischief.basic_attack
+        player.special_attack = monty_mischief.special_attack
+    elif character == sayo_swift:
+        player.name = sayo_swift.name
+        player.max_hp = sayo_swift.max_hp
+        player.basic_attack = sayo_swift.basic_attack
+        player.special_attack = sayo_swift.special_attack
+    else:
+        player.name = dave_danger.name
+        player.max_hp = dave_danger.max_hp
+        player.basic_attack = dave_danger.basic_attack
+        player.special_attack = dave_danger.special_attack
+
+# Code to run the main menu for viewing character stats and character selection
 def main_menu():
     start_options = ['View character stats', 'Select character', 'Quit']
     quit_menu = False
@@ -53,13 +79,13 @@ def main_menu():
             while char_menu_back == False:
                 char_options_sel = char_menu.show()
                 if char_options_sel == 0:
-                    pass # function to set player character as Bella
+                    select_character(bella_brawler)
                 elif char_options_sel == 1:
-                    pass # function to set player character as Monty
+                    select_character(monty_mischief)
                 elif char_options_sel == 2:
-                    pass # function to set player character as Sayo
+                    select_character(sayo_swift)
                 elif char_options_sel == 3:
-                    pass # function to set player character as Dave
+                    select_character(dave_danger)
                 elif char_options_sel == 4:
                     char_menu_back = True
             char_menu_back = False
@@ -68,3 +94,5 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
+
+print(player.__dict__)
