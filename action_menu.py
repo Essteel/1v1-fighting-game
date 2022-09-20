@@ -1,7 +1,7 @@
+from random import randint
 from simple_term_menu import TerminalMenu
 import classes.attack as attack
 from start_menu import player, opponent
-from random import randint
 
 # Set values for the attack objects for player and opponent
 player_basic_atk = attack.Attack(player.basic_attack)
@@ -13,10 +13,20 @@ opponent_special_atk = attack.Attack(opponent.special_attack)
 def basic_attack():
     success = randint(0, 20)
     if success >= 12:
-        return player_special_atk - player_basic_atk
+        return opponent.max_hp - player_basic_atk
+    if success == 20:
+        print('Critical hit! You got a power up')
+        # code for adding power up to player
     else:
         print('Oh no! Your attack missed')
 
+# Special attack function
+def special_attack():
+    if player.special_attack_guage > 0:
+        player.special_attack_guage -= 1
+        return opponent.max_hp - player_special_atk
+    else:
+        print('Oh no! You\'re all out of Special Attacks')
 
 # Code to run the action menu to select whether to attack or use an item
 def action_menu():
@@ -31,9 +41,9 @@ def action_menu():
     while quit_menu == False:
         action_options_sel = action_menu.show()
         if action_options_sel == 0:
-            pass # function to perform basic attack
+            basic_attack()
         elif action_options_sel == 1:
-            pass # function to perform special attack
+            special_attack()
         if action_options_sel == 2:
             while item_menu_back == False:
                 item_options_sel = item_menu.show()
