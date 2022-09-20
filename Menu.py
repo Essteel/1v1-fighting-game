@@ -1,5 +1,19 @@
 import time
 from simple_term_menu import TerminalMenu
+import Character
+
+# # Create character objects
+bella_brawler = Character.Character('Bella Brawler', 350, 350, 30, 50)
+monty_mischief = Character.Character('Monty Mischief', 200, 200, 40, 70)
+sayo_swift = Character.Character('Sayo Swift', 200, 200, 50, 60)
+dave_danger = Character.Character('Dave Danger', 175, 175, 50, 80)
+
+# function that will allow user to view a list of characters and their stats
+def get_character_stats():
+    print(bella_brawler.__dict__)
+    print(monty_mischief.__dict__)
+    print(sayo_swift.__dict__)
+    print(dave_danger.__dict__)
 
 def main_menu():
     start_options = ['View character stats', 'Select character', 'Quit']
@@ -17,7 +31,7 @@ def main_menu():
         # char_options_index = char_menu.show()
         # char_options_choice = char_options[char_options_index]
         if start_options_sel == 1:
-            pass # function to print character stats
+            get_character_stats() # function to print character stats
         if start_options_sel == 1:
             while char_menu_back == False:
                 char_options_sel = char_menu.show()

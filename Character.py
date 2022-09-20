@@ -6,15 +6,9 @@ class Character:
         self.basic_attack = basic_attack
         self.special_attack = special_attack
 
-# function that will allow user to view a list of characters and their stats
-def get_character_stats():
-    user_input = input('View character stats (y/n): ').lower()
-    if user_input == 'y':
-        return print(f'Please pick a character:\n{bella_brawler.__dict__}\n{monty_mischief.__dict__}\n{sayo_swift.__dict__}\n{dave_danger.__dict__}')
-
 # sub class for player character
-class Player(Character):
-    super().__init__()
+# class Player(Character):
+#     super().__init__()
 
 # function to assign a character to the player
 def select_player():
