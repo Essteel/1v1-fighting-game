@@ -1,12 +1,22 @@
 from simple_term_menu import TerminalMenu
 import classes.attack as attack
 from start_menu import player, opponent
+from random import randint
 
 # Set values for the attack objects for player and opponent
 player_basic_atk = attack.Attack(player.basic_attack)
 player_special_atk = attack.Attack(player.special_attack)
 opponent_basic_atk = attack.Attack(opponent.basic_attack)
 opponent_special_atk = attack.Attack(opponent.special_attack)
+
+# Basic attack function
+def basic_attack():
+    success = randint(0, 20)
+    if success >= 12:
+        return player_special_atk - player_basic_atk
+    else:
+        print('Oh no! Your attack missed')
+
 
 # Code to run the action menu to select whether to attack or use an item
 def action_menu():
