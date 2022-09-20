@@ -32,10 +32,13 @@ import time
 
 # Character.get_character_stats()
 
-import start_menu
+import start_menu, action_menu
 
-# Executes the main menu for viewing character stats and character selection
-start_menu.main_menu()
+# Executes the start menu for viewing character stats and character selection
+start_menu.start_menu()
 
 # Calls the function to randomly assign an opponent
 start_menu.select_opponent()
+
+# Executes the action menu for selecting options during battle
+action_menu.action_menu()

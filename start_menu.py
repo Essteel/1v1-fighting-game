@@ -72,34 +72,22 @@ def select_opponent():
         opponent.basic_attack = dave_danger.basic_attack
         opponent.special_attack = dave_danger.special_attack
 
-# Code to run the main menu for viewing character stats and character selection
-def main_menu():
+# Code to run the start menu for viewing character stats and character selection
+def start_menu():
     start_options = ['View character stats', 'Select character', 'Quit']
     quit_menu = False
-    start_menu = TerminalMenu(
-        start_options,
-        clear_screen = True,
-        )
+    start_menu = TerminalMenu(start_options, clear_screen = True)
     
     char_options = ['Bella Brawler', 'Monty Mischief', 'Sayo Swift', 'Dave Danger', 'Back']
     char_menu_back = False
-    char_menu = TerminalMenu(
-        char_options,
-        clear_screen = True
-        )
+    char_menu = TerminalMenu(char_options, clear_screen = True)
 
     stats_options = ['Back']
     stats_menu_back = False
-    stats_menu = TerminalMenu(
-        stats_options,
-        clear_screen = False
-    )
+    stats_menu = TerminalMenu(stats_options,clear_screen = False)
 
     while quit_menu == False:
         start_options_sel = start_menu.show()
-        # start_options_choice = start_options[start_options_index]
-        # char_options_index = char_menu.show()
-        # char_options_choice = char_options[char_options_index]
         if start_options_sel == 0:
             while stats_menu_back == False:
                 get_character_stats() # function to print character stats
@@ -125,4 +113,4 @@ def main_menu():
             quit_menu = True
 
 if __name__ == "__main__":
-    main_menu()
+    start_menu()
