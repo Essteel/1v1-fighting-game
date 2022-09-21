@@ -47,6 +47,13 @@ action_menu.action_menu_main()
 while action_menu.player.hp > 0 and action_menu.opponent.hp > 0:
     action_menu.action_menu_main()
     if action_menu.opponent.hp <= 0:
-        print('Hooray! You won.\n Press \'q\' to exit or \'Enter\' to try again.')
+        print('Hooray! You won.')
     elif action_menu.player.hp <= 0:
-        print('Oh no! You lost.\n Press \'q\' to exit or \'Enter\' to try again.')
+        print('Oh no! You lost.')
+
+user_input = input('Press \'q\' to exit or \'Enter\' to try again: ')
+
+if user_input == curses.KEY_ENTER:
+    pass # main() # function wrapper for whole of main actions
+else:
+    print('Thanks for playing!')
