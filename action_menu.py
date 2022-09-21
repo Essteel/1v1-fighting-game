@@ -13,18 +13,22 @@ opponent_special_atk = attack.Attack(opponent.special_attack)
 def basic_attack():
     success = randint(0, 20)
     if success >= 12:
-        return opponent.max_hp - player_basic_atk
+        return opponent.hp - player_basic_atk
     if success == 20:
         print('Critical hit! You got a power up')
         # code for adding power up to player
     else:
         print('Oh no! Your attack missed')
 
+# Opponent attack function
+def opponent_attack():
+    player.hp = player.hp - opponent_basic_atk
+
 # Special attack function
 def special_attack():
     if player.special_atk_guage > 0:
         player.special_atk_guage -= 1
-        return opponent.max_hp - player_special_atk
+        return opponent.hp - player_special_atk
     else:
         print('Oh no! You\'re all out of Special Attacks')
 
