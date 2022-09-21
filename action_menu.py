@@ -66,11 +66,9 @@ def action_menu_main():
     while quit_menu == False:
         action_options_sel = action_menu.show()
         if action_options_sel == 0:
-            # basic_attack()
-            print('You selected basic attack')
+            basic_attack()
         elif action_options_sel == 1:
-            # special_attack()
-            print('You selected special attack')
+            special_attack()
         if action_options_sel == 2:
             while item_menu_back == False:
                 item_options_sel = item_menu.show()

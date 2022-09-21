@@ -3,14 +3,14 @@ import classes.character as character
 import random
 
 # Create character objects
-bella_brawler = character.Player('Bella Brawler', 350, 30, 50, 2, {'Health Potion' : 2, 'Power Up' : 0})
-monty_mischief = character.Player('Monty Mischief', 200, 40, 70, 2, {'Health Potion' : 2, 'Power Up' : 0})
-sayo_swift = character.Player('Sayo Swift', 200, 50, 60, 2, {'Health Potion' : 2, 'Power Up' : 0})
-dave_danger = character.Player('Dave Danger', 175, 50, 80, 2, {'Health Potion' : 2, 'Power Up' : 0})
+bella_brawler = character.Player('Bella Brawler', 350, 350, 30, 50, 2, {'Health Potion' : 2, 'Power Up' : 0})
+monty_mischief = character.Player('Monty Mischief', 200, 200, 40, 70, 2, {'Health Potion' : 2, 'Power Up' : 0})
+sayo_swift = character.Player('Sayo Swift', 200, 200, 50, 60, 2, {'Health Potion' : 2, 'Power Up' : 0})
+dave_danger = character.Player('Dave Danger', 175, 175, 50, 80, 2, {'Health Potion' : 2, 'Power Up' : 0})
 
 # Create empty player and opponent objects
-player = character.Player('', 0, 0, 0, 0, [''])
-opponent = character.Character('', 0, 0, 0)
+player = character.Player('', 0, 0, 0, 0, 0, [''])
+opponent = character.Character('', 0, 0, 0, 0)
 
 # Function that will allow user to view a list of characters and their stats
 def get_character_stats():
@@ -23,6 +23,7 @@ def get_character_stats():
 def select_character(choice):
     if choice == bella_brawler:
         player.name = bella_brawler.name
+        player.hp = bella_brawler.hp
         player.max_hp = bella_brawler.max_hp
         player.basic_attack = bella_brawler.basic_attack
         player.special_attack = bella_brawler.special_attack
@@ -30,6 +31,7 @@ def select_character(choice):
         player.inventory = bella_brawler.inventory
     elif choice == monty_mischief:
         player.name = monty_mischief.name
+        player.hp = monty_mischief.hp
         player.max_hp = monty_mischief.max_hp
         player.basic_attack = monty_mischief.basic_attack
         player.special_attack = monty_mischief.special_attack
@@ -37,6 +39,7 @@ def select_character(choice):
         player.inventory = monty_mischief.inventory
     elif choice == sayo_swift:
         player.name = sayo_swift.name
+        player.hp = sayo_swift.hp
         player.max_hp = sayo_swift.max_hp
         player.basic_attack = sayo_swift.basic_attack
         player.special_attack = sayo_swift.special_attack
@@ -44,6 +47,7 @@ def select_character(choice):
         player.inventory = sayo_swift.inventory
     else:
         player.name = dave_danger.name
+        player.hp = sayo_swift.hp
         player.max_hp = dave_danger.max_hp
         player.basic_attack = dave_danger.basic_attack
         player.special_attack = dave_danger.special_attack
@@ -61,21 +65,25 @@ def select_opponent():
     opponent_choice = random.choice(opponent_list)
     if opponent_choice == 'Bella Brawler':
         opponent.name = bella_brawler.name
+        opponent.hp = bella_brawler.hp
         opponent.max_hp = bella_brawler.max_hp
         opponent.basic_attack = bella_brawler.basic_attack
         opponent.special_attack = bella_brawler.special_attack
     elif opponent_choice == 'Monty Mischief':
         opponent.name = monty_mischief.name
+        opponent.hp = monty_mischief.hp
         opponent.max_hp = monty_mischief.max_hp
         opponent.basic_attack = monty_mischief.basic_attack
         opponent.special_attack = monty_mischief.special_attack
     elif opponent_choice == 'Sayo Swift':
         opponent.name = sayo_swift.name
+        opponent.hp = sayo_swift.hp
         opponent.max_hp = sayo_swift.max_hp
         opponent.basic_attack = sayo_swift.basic_attack
         opponent.special_attack = sayo_swift.special_attack
     elif opponent_choice == 'Dave Danger':
         opponent.name = dave_danger.name
+        opponent.hp = dave_danger.hp
         opponent.max_hp = dave_danger.max_hp
         opponent.basic_attack = dave_danger.basic_attack
         opponent.special_attack = dave_danger.special_attack

@@ -39,6 +39,10 @@ start_menu.start_menu_main()
 
 # Calls the function to randomly assign an opponent
 start_menu.select_opponent()
+print(action_menu.player.__dict__)
+print(action_menu.opponent.__dict__)
 
 # Executes the action menu for selecting options during battle
-action_menu.action_menu_main()
+# action_menu.action_menu_main()
+
+
