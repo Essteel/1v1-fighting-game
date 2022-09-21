@@ -37,8 +37,14 @@ def special_attack():
     else:
         print('Oh no! You\'re all out of Special Attacks')
 
+# Use health item function
+def use_health_item():
+    # code for checking if player has a health item
+    return player.hp + health_item.hp_restored
+
 # Use power up function
 def use_pwr_up():
+    # code for checking if player has a power up
     return opponent.hp - (player_basic_atk + power_up.dmg_added)
 
 # Code to run the action menu to select whether to attack or use an item
