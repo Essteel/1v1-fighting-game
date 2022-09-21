@@ -18,12 +18,13 @@ power_up = items.PowerUp('Power Up', 10)
 def basic_attack():
     success = randint(0, 20)
     if success >= 12:
-        return opponent.hp - player_basic_atk
+        opponent.hp = opponent.hp - player.basic_attack
     if success == 20:
         print('Critical hit! You got a power up')
         player.inventory['Power Up'] = player.inventory.get('Power Up') + 1
     else:
         print('Oh no! Your attack missed')
+print(opponent.__dict__)
 
 # Opponent attack function
 def opponent_attack():
@@ -43,7 +44,7 @@ def use_health_item():
         print('You have no Health Potions')
     else:
         player.inventory['Health Potion'] -= 1
-        return player.hp + health_item.hp_restored
+        return player.hp + health_item.hp_restored # add in not to go above max health
 
 # Use power up function
 def use_pwr_up():
