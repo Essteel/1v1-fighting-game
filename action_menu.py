@@ -39,24 +39,19 @@ def special_attack():
 
 # Use health item function
 def use_health_item():
-    if player.inventory['Health Potion'] > 0:
-        has_potion = True
-    else:
+    if player.inventory['Health Potion'] <= 0:
         print('You have no Health Potions')
-        if has_potion is True:
-            player.inventory['Health Potion'] -= 1
-            return player.hp + health_item.hp_restored
+    else:
+        player.inventory['Health Potion'] -= 1
+        return player.hp + health_item.hp_restored
 
 # Use power up function
 def use_pwr_up():
-    has_pwr_up = False
-    if player.inventory['Power Up'] > 0:
-        has_pwr_up = True
-    else:
+    if player.inventory['Power Up'] <= 0:
         print('You have no Power Ups')
-        if has_pwr_up is True:
-            player.inventory['Power Up'] -= 1
-            return opponent.hp - (player_basic_atk + power_up.dmg_added)
+    else:
+        player.inventory['Power Up'] -= 1
+        return opponent.hp - (player_basic_atk + power_up.dmg_added)
 
 # Code to run the action menu to select whether to attack or use an item
 def action_menu_main():
