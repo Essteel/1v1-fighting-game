@@ -3,13 +3,13 @@ import classes.character as character
 import random
 
 # Create character objects
-bella_brawler = character.Character('Bella Brawler', 350, 30, 50)
-monty_mischief = character.Character('Monty Mischief', 200, 40, 70)
-sayo_swift = character.Character('Sayo Swift', 200, 50, 60)
-dave_danger = character.Character('Dave Danger', 175, 50, 80)
+bella_brawler = character.Player('Bella Brawler', 350, 30, 50, 2, 2)
+monty_mischief = character.Player('Monty Mischief', 200, 40, 70, 2, 2)
+sayo_swift = character.Player('Sayo Swift', 200, 50, 60, 2, 2)
+dave_danger = character.Player('Dave Danger', 175, 50, 80, 2, 2)
 
 # Create empty player and opponent objects
-player = character.Character('', 0, 0, 0)
+player = character.Player('', 0, 0, 0, 0, 0)
 opponent = character.Character('', 0, 0, 0)
 
 # Function that will allow user to view a list of characters and their stats
@@ -20,27 +20,35 @@ def get_character_stats():
     print(dave_danger.__dict__)
 
 # Function for player character selection
-def select_character(character):
-    if character == bella_brawler:
+def select_character(choice):
+    if choice == bella_brawler:
         player.name = bella_brawler.name
         player.max_hp = bella_brawler.max_hp
         player.basic_attack = bella_brawler.basic_attack
         player.special_attack = bella_brawler.special_attack
-    elif character == monty_mischief:
+        player.special_atk_guage = bella_brawler.special_atk_guage
+        player.inventory = bella_brawler.inventory
+    elif choice == monty_mischief:
         player.name = monty_mischief.name
         player.max_hp = monty_mischief.max_hp
         player.basic_attack = monty_mischief.basic_attack
         player.special_attack = monty_mischief.special_attack
-    elif character == sayo_swift:
+        player.special_atk_guage = monty_mischief.special_atk_guage
+        player.inventory = monty_mischief.inventory
+    elif choice == sayo_swift:
         player.name = sayo_swift.name
         player.max_hp = sayo_swift.max_hp
         player.basic_attack = sayo_swift.basic_attack
         player.special_attack = sayo_swift.special_attack
+        player.special_atk_guage = sayo_swift.special_atk_guage
+        player.inventory = sayo_swift.inventory
     else:
         player.name = dave_danger.name
         player.max_hp = dave_danger.max_hp
         player.basic_attack = dave_danger.basic_attack
         player.special_attack = dave_danger.special_attack
+        player.special_atk_guage = dave_danger.special_atk_guage
+        player.inventory = dave_danger.inventory
 
 # Function for opponent character selection
 def select_opponent():
@@ -73,7 +81,7 @@ def select_opponent():
         opponent.special_attack = dave_danger.special_attack
 
 # Code to run the start menu for viewing character stats and character selection
-def start_menu():
+def start_menu_main():
     start_options = ['View character stats', 'Select character', 'Quit']
     quit_menu = False
     start_menu = TerminalMenu(start_options, clear_screen = True)
@@ -113,4 +121,4 @@ def start_menu():
             quit_menu = True
 
 if __name__ == "__main__":
-    start_menu()
+    start_menu_main()

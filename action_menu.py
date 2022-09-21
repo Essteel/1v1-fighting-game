@@ -22,14 +22,14 @@ def basic_attack():
 
 # Special attack function
 def special_attack():
-    if player.special_attack_guage > 0:
-        player.special_attack_guage -= 1
+    if player.special_atk_guage > 0:
+        player.special_atk_guage -= 1
         return opponent.max_hp - player_special_atk
     else:
         print('Oh no! You\'re all out of Special Attacks')
 
 # Code to run the action menu to select whether to attack or use an item
-def action_menu():
+def action_menu_main():
     action_options = ['Basic attack', 'Special attack', 'Use item', 'Quit game']
     quit_menu = False
     action_menu = TerminalMenu(action_options, clear_screen = True)
@@ -58,4 +58,4 @@ def action_menu():
             quit_menu = True
 
 if __name__ == "__main__":
-    action_menu()
+    action_menu_main()
