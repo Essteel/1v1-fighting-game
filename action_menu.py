@@ -39,8 +39,14 @@ def special_attack():
 
 # Use health item function
 def use_health_item():
-    # code for checking if player has a health item
-    return player.hp + health_item.hp_restored
+    if 'Health Potion' in player.inventory:
+        has_potion = True
+    else:
+        print('You have no Health Potions')
+        if has_potion == True:
+            i = player.inventory.index('Health Potion')
+            player.inventory = player.inventory[:i]+player.inventory[i+1:]
+            return player.hp + health_item.hp_restored
 
 # Use power up function
 def use_pwr_up():
@@ -67,7 +73,7 @@ def action_menu_main():
             while item_menu_back == False:
                 item_options_sel = item_menu.show()
                 if item_options_sel == 0:
-                    pass # function to use health item if held
+                    use_health_item()
                 elif item_options_sel == 1:
                     use_pwr_up()
                 elif item_options_sel == 2:
