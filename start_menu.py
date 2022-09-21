@@ -3,10 +3,10 @@ import classes.character as character
 import random
 
 # Create character objects
-bella_brawler = character.Player('Bella Brawler', 350, 30, 50, 2, ['Health Potion', 'Health Potion'])
-monty_mischief = character.Player('Monty Mischief', 200, 40, 70, 2, ['Health Potion', 'Health Potion'])
-sayo_swift = character.Player('Sayo Swift', 200, 50, 60, 2, ['Health Potion', 'Health Potion'])
-dave_danger = character.Player('Dave Danger', 175, 50, 80, 2, ['Health Potion', 'Health Potion'])
+bella_brawler = character.Player('Bella Brawler', 350, 30, 50, 2, {'Health Potion' : 2, 'Power Up' : 0})
+monty_mischief = character.Player('Monty Mischief', 200, 40, 70, 2, {'Health Potion' : 2, 'Power Up' : 0})
+sayo_swift = character.Player('Sayo Swift', 200, 50, 60, 2, {'Health Potion' : 2, 'Power Up' : 0})
+dave_danger = character.Player('Dave Danger', 175, 50, 80, 2, {'Health Potion' : 2, 'Power Up' : 0})
 
 # Create empty player and opponent objects
 player = character.Player('', 0, 0, 0, 0, [''])
