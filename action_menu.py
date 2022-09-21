@@ -1,5 +1,6 @@
 from random import randint
 from simple_term_menu import TerminalMenu
+import classes.items as items
 import classes.attack as attack
 from start_menu import player, opponent
 
@@ -8,6 +9,10 @@ player_basic_atk = attack.Attack(player.basic_attack)
 player_special_atk = attack.Attack(player.special_attack)
 opponent_basic_atk = attack.Attack(opponent.basic_attack)
 opponent_special_atk = attack.Attack(opponent.special_attack)
+
+# Create health items and power ups
+health_item = items.HealthItem('Health Potion', 15)
+power_up = items.PowerUp('Power Up', 10)
 
 # Basic attack function
 def basic_attack():
@@ -32,6 +37,10 @@ def special_attack():
     else:
         print('Oh no! You\'re all out of Special Attacks')
 
+# Use power up function
+def use_pwr_up():
+    return opponent.hp - (player_basic_atk + power_up.dmg_added)
+
 # Code to run the action menu to select whether to attack or use an item
 def action_menu_main():
     action_options = ['Basic attack', 'Special attack', 'Use item', 'Quit game']
@@ -54,7 +63,7 @@ def action_menu_main():
                 if item_options_sel == 0:
                     pass # function to use health item if held
                 elif item_options_sel == 1:
-                    pass # function to use power up if held
+                    use_pwr_up()
                 elif item_options_sel == 2:
                     item_menu_back = True
             item_menu_back = False
