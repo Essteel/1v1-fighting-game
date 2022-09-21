@@ -21,7 +21,7 @@ def basic_attack():
         return opponent.hp - player_basic_atk
     if success == 20:
         print('Critical hit! You got a power up')
-        # code for adding power up to player
+        player.inventory.append('Power Up')
     else:
         print('Oh no! Your attack missed')
 
@@ -43,15 +43,21 @@ def use_health_item():
         has_potion = True
     else:
         print('You have no Health Potions')
-        if has_potion == True:
+        if has_potion is True:
             i = player.inventory.index('Health Potion')
             player.inventory = player.inventory[:i]+player.inventory[i+1:]
             return player.hp + health_item.hp_restored
 
 # Use power up function
 def use_pwr_up():
-    # code for checking if player has a power up
-    return opponent.hp - (player_basic_atk + power_up.dmg_added)
+    if 'Power Up' in player.inventory:
+        has_pwr_up = True
+    else:
+        print('You have no Power Ups')
+        if has_pwr_up is True:
+            i = player.inventory.index('Power Up')
+            player.inventory = player.inventory[:i]+player.inventory[i+1:]
+            return opponent.hp - (player_basic_atk + power_up.dmg_added)
 
 # Code to run the action menu to select whether to attack or use an item
 def action_menu_main():
