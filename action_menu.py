@@ -12,8 +12,8 @@ power_up = items.PowerUp('Power Up', 10)
 def basic_attack():
     success = randint(0, 20)
     if success >= 12:
-        opponent.hp = opponent.hp - player.basic_attack
         print('Success! Your attack hit')
+        opponent.hp = opponent.hp - player.basic_attack
     if success == 20:
         print('Critical hit! You got a power up')
         player.inventory['Power Up'] = player.inventory.get('Power Up') + 1
@@ -23,15 +23,15 @@ print(opponent.__dict__)
 
 # Opponent attack function
 def opponent_attack():
+    print('Your opponent attacked')
     player.hp = player.hp - opponent.basic_attack
-    print(f'Your opponent attacked, your health is now {player.hp}')
 
 # Special attack function
 def special_attack():
     if player.special_atk_guage > 0:
+        print('You used a special attack')
         player.special_atk_guage -= 1
         opponent.hp = opponent.hp - player.special_attack
-        print(f'You used a special attack, your opponents health is now {opponent.hp}')
     else:
         print('Oh no! You\'re all out of Special Attacks')
 
@@ -82,7 +82,7 @@ def action_menu_main():
                     item_menu_back = True
             item_menu_back = False
         elif action_options_sel == 3:
-            pass # write function that quits the game
+            break
 
 if __name__ == "__main__":
     action_menu_main()
