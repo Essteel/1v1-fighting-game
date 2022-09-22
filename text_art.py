@@ -9,7 +9,7 @@ def title_text():
 
 def fight_text():
     print("""
-                        FIGHT!                                 
+                      GAME OVER!                                 
              @@@                   @@@.                  
            @@@@@@$$  @@            /@@@@@,               
             @@@@% @@@         @  @@@@@@@@                

@@ -98,15 +98,6 @@ def player_action():
 if __name__ == "__main__":
     player_action()
 
-
-def end():
-    user_input = input('Enter \'q\' to exit or \'a\' to try again: ')
-
-    if user_input == 'a':
-        pass # main() # function wrapper for whole of main actions
-    elif user_input == 'q':
-        print('Thanks for playing!')
-
 def action_sequence():
     while player.hp > 0 and opponent.hp > 0:
         print('\n-------------------------------------------')
@@ -115,9 +106,11 @@ def action_sequence():
         player_action()
         if opponent.hp > 0:
             opponent_attack()
-        # elif opponent.hp <= 0:
-        #     print('Congrats! You won')
-        #     end()
-        # else:
-        #     print('Too bad, you lost!')
-        #     end()
+        
+def check_winner():
+    if opponent.hp <= 0:
+        print('Congrats! You won')
+    elif player.hp <= 0:
+        print('Too bad, you lost!')
+    else:
+        print('\nThanks for playing!')
