@@ -3,6 +3,7 @@ from simple_term_menu import TerminalMenu
 import classes.items as items
 import classes.attack as attack
 from start_menu import player, opponent
+import clearing
 
 # Create health items and power ups
 health_item = items.HealthItem('Health Potion', 15)
@@ -72,9 +73,11 @@ def action_menu_main():
     while action_taken == False:
         action_options_sel = action_menu.show()
         if action_options_sel == 0:
+            clearing.clear()
             basic_attack()
             action_taken = True
         elif action_options_sel == 1:
+            clearing.clear()
             special_attack()
             action_taken = True
         if action_options_sel == 2:
@@ -89,6 +92,8 @@ def action_menu_main():
             item_menu_back = False
         elif action_options_sel == 3:
             break
+        if action_taken == True:
+            opponent_attack()
 
 if __name__ == "__main__":
     action_menu_main()
