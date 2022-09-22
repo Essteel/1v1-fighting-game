@@ -57,11 +57,17 @@ def use_pwr_up():
 def action_menu_main():
     action_options = ['Basic attack', 'Special attack', 'Use item', 'Quit game']
     action_taken = False
-    action_menu = TerminalMenu(action_options, clear_screen = True)
+    action_menu = TerminalMenu(action_options,
+    clear_screen = False,
+    clear_menu_on_exit = True
+    )
 
     item_options = ['Health item', 'Power up', 'Back']
     item_menu_back = False
-    item_menu = TerminalMenu(item_options, clear_screen = False)
+    item_menu = TerminalMenu(item_options,
+    clear_screen = False,
+    clear_menu_on_exit = True
+    )
 
     while action_taken == False:
         action_options_sel = action_menu.show()
