@@ -4,6 +4,7 @@ import classes.items as items
 import classes.attack as attack
 from start_menu import player, opponent
 import clearing
+import text_art
 
 # Create health items and power ups
 health_item = items.HealthItem('Health Potion', 15)
