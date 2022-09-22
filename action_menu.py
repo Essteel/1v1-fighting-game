@@ -57,8 +57,7 @@ def use_pwr_up():
         return opponent.hp - (player.basic_attack + power_up.dmg_added)
 
 def player_action():
-    action_options = ['Basic attack', 'Special attack', 'Use item', 'Quit game']
-    quit_menu = False
+    action_options = ['Basic attack', 'Special attack', 'Use item']
     action_taken = False
     action_menu = TerminalMenu(action_options,
     clear_screen = False,
@@ -72,8 +71,7 @@ def player_action():
     clear_menu_on_exit = True
     )
 
-    while quit_menu == False and action_taken == False:
-        
+    while action_taken == False:
         action_options_sel = action_menu.show()
         if action_options_sel == 0:
             clearing.clear()
@@ -95,15 +93,12 @@ def player_action():
                     use_pwr_up()
                 if item_options_sel == 2:
                     item_menu_back = True
-        elif action_options_sel == 3:
-            quit_menu = True
 
 if __name__ == "__main__":
     player_action()
 
 def action_sequence():
-    quitting = False
-    while quitting == False:
+    while player.hp > 0 and opponent.hp > 0:
         print('\n-------------------------------------------')
         print(f'Player health: {player.hp}     Opponent health: {opponent.hp}')
         print(f"Health item: {player.inventory['Health Potion']}\nPower up: {player.inventory['Power Up']}\n")
