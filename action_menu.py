@@ -15,10 +15,10 @@ def basic_attack():
     if success >= 12:
         print('Success! Your attack hit')
         opponent.hp = opponent.hp - player.basic_attack
-    if success == 20:
+    elif success == 20:
         print('Critical hit! You got a power up')
         player.inventory['Power Up'] = player.inventory.get('Power Up') + 1
-    else:
+    elif success < 12:
         print('Oh no! Your attack missed')
 print(opponent.__dict__)
 
@@ -30,8 +30,8 @@ def opponent_attack():
 # Special attack function
 def special_attack():
     if player.special_atk_guage > 0:
-        print('You used a special attack')
         player.special_atk_guage -= 1
+        print(f'You used a special attack. You have {player.special_atk_guage} special attacks left')
         opponent.hp = opponent.hp - player.special_attack
     else:
         print('Oh no! You\'re all out of Special Attacks')
@@ -42,7 +42,7 @@ def use_health_item():
         print('You have no Health Potions')
     else:
         player.inventory['Health Potion'] -= 1
-        print('You used a Health Potion')
+        print(f"You used a Health Potion. You have {player.inventory['Health Potion']} health items left")
         return player.hp + health_item.hp_restored # add in not to go above max health
 
 # Use power up function
@@ -51,7 +51,7 @@ def use_pwr_up():
         print('You have no Power Ups')
     else:
         player.inventory['Power Up'] -= 1
-        print('You used a Power Up')
+        print(f"You used a Power Up. You have {player.inventory['Power Up']} power ups left")
         return opponent.hp - (player.basic_attack + power_up.dmg_added)
 
 # Code to run the action menu to select whether to attack or use an item
@@ -71,6 +71,8 @@ def action_menu_main():
     )
 
     while action_taken == False:
+        print(f'\nPlayer health: {player.hp}     Opponent health: {opponent.hp}')
+        print(f"Health item: {player.inventory['Health Potion']}\nPower up: {player.inventory['Power Up']}\n")
         action_options_sel = action_menu.show()
         if action_options_sel == 0:
             clearing.clear()
@@ -84,8 +86,10 @@ def action_menu_main():
             while item_menu_back == False:
                 item_options_sel = item_menu.show()
                 if item_options_sel == 0:
+                    clearing.clear()
                     use_health_item()
                 elif item_options_sel == 1:
+                    clearing.clear()
                     use_pwr_up()
                 elif item_options_sel == 2:
                     item_menu_back = True
