@@ -105,6 +105,7 @@ def start_menu_main():
     while quit_menu == False:
         start_options_sel = start_menu.show()
         if start_options_sel == 0:
+            stats_menu_back = False
             while stats_menu_back == False:
                 get_character_stats() # function to print character stats
                 stats_options_sel = stats_menu.show()

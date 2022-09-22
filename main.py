@@ -2,13 +2,14 @@ import text_art
 import start_menu, action_menu
 import clearing
 
+
 play = True
 
 while play:
 # Welcome screen
     clearing.clear()
     text_art.title_text()
-    input('\n Press any key to continue')
+    input('\n Press Enter to continue')
 
     start_menu.start_menu_main()
 
@@ -19,8 +20,6 @@ while play:
     action_menu.action_sequence()
 
     text_art.fight_text()
-
-    action_menu.check_winner()
 
     user_input = input('\nEnter \'q\' to exit or \'a\' to try again: ')
     if user_input == 'q':

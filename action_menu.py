@@ -62,7 +62,7 @@ def player_action():
     action_taken = False
     action_menu = TerminalMenu(action_options,
     clear_screen = False,
-    clear_menu_on_exit = True
+    clear_menu_on_exit = True,
     )
     
     item_options = ['Health item', 'Power up', 'Back']
@@ -73,44 +73,46 @@ def player_action():
     )
 
     while quit_menu == False and action_taken == False:
+        
         action_options_sel = action_menu.show()
         if action_options_sel == 0:
             clearing.clear()
             basic_attack()
             action_taken = True
-        if action_options_sel == 1:
+        elif action_options_sel == 1:
             clearing.clear()
             special_attack()
             action_taken = True
-        if action_options_sel == 2:
+        elif action_options_sel == 2:
+            item_menu_back = False
             while item_menu_back == False:
                 item_options_sel = item_menu.show()
                 if item_options_sel == 0:
+                    clearing.clear()
                     use_health_item()
                 if item_options_sel == 1:
+                    clearing.clear()
                     use_pwr_up()
                 if item_options_sel == 2:
                     item_menu_back = True
-                    item_menu_back = False
         elif action_options_sel == 3:
-            end()
+            quit_menu = True
 
 if __name__ == "__main__":
     player_action()
 
 def action_sequence():
-    while player.hp > 0 and opponent.hp > 0:
+    quitting = False
+    while quitting == False:
         print('\n-------------------------------------------')
         print(f'Player health: {player.hp}     Opponent health: {opponent.hp}')
         print(f"Health item: {player.inventory['Health Potion']}\nPower up: {player.inventory['Power Up']}\n")
         player_action()
         if opponent.hp > 0:
             opponent_attack()
-        
-def check_winner():
-    if opponent.hp <= 0:
-        print('Congrats! You won')
-    elif player.hp <= 0:
-        print('Too bad, you lost!')
-    else:
-        print('\nThanks for playing!')
+        elif opponent.hp <= 0:
+            print('Congrats! You won')
+            quitting = True
+        elif player.hp <= 0:
+            print('Too bad, you lost!')
+            quitting = True
