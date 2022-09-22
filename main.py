@@ -1,7 +1,9 @@
 import text_art
 import start_menu, action_menu
+import clearing
 
 # Welcome screen
+clearing.clear()
 text_art.title_text()
 input('\n Press any key to continue')
 

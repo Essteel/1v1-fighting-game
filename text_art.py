@@ -7,7 +7,7 @@ def title_text():
      /___/                                                     /___/              
     """)
 
-def header():
+def fight_text():
     print("""
                         FIGHT!                                 
              @@@                   @@@.                  
