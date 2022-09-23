@@ -27,13 +27,33 @@ class TestSelectCharacter:
 
 class TestAttacks:
     def test_attack_power(self):
-        pass
+        character.player = character.Player('Dave Danger', 175, 175, 50, 80, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        assert character.player.basic_attack == 50
+        character.player = character.Player('Monty Mischief', 200, 200, 40, 70, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        assert character.player.basic_attack == 40
 
     def test_special_power(self):
-        pass
+        character.player = character.Player('Bella Brawler', 350, 350, 30, 50, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        assert character.player.special_attack == 50
+        character.player = character.Player('Sayo Swift', 200, 200, 50, 60, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        assert character.player.special_attack == 60
 
     def test_attack_damage(self):
-        pass
+        character.player = character.Player('Monty Mischief', 200, 200, 40, 70, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        character.opponent = character.Character('Bella Brawler', 350, 350, 30, 50)
+        character.opponent.hp = character.opponent.hp - character.player.basic_attack
+        assert character.opponent.hp == 310
+        character.player = character.Player('Sayo Swift', 200, 200, 50, 60, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        character.opponent = character.Character('Dave Danger', 175, 175, 50, 80)
+        character.opponent.hp = character.opponent.hp - character.player.basic_attack
+        assert character.opponent.hp == 125
 
     def test_special_damage(self):
-        pass
+        character.player = character.Player('Sayo Swift', 200, 200, 50, 60, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        character.opponent = character.Character('Bella Brawler', 350, 350, 30, 50)
+        character.opponent.hp = character.opponent.hp - character.player.special_attack
+        assert character.opponent.hp == 290
+        character.player = character.Player('Monty Mischief', 200, 200, 40, 70, 2, {'Health Potion' : 2, 'Power Up' : 0})
+        character.opponent = character.Character('Dave Danger', 175, 175, 50, 80)
+        character.opponent.hp = character.opponent.hp - character.player.special_attack
+        assert character.opponent.hp == 105

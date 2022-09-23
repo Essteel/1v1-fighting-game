@@ -1,5 +1,5 @@
 import random
-import modules.character as character
+import character
 
 # Basic attack function
 def basic_attack():
@@ -9,7 +9,7 @@ def basic_attack():
         character.player.inventory['Power Up'] = character.player.inventory.get('Power Up') + 1
     elif success >= 12:
         print('Success! Your attack hit')
-        character.opponent.hp = character.opponent.hp - character.player.basic_attack    
+        character.opponent.hp = character.opponent.hp - character.player.basic_attack
     elif success < 12:
         print('Oh no! Your attack missed')
 

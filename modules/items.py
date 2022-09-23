@@ -1,4 +1,4 @@
-import modules.character as character
+import character
 
 class HealthItem:
     def __init__(self, name, hp_restored):
