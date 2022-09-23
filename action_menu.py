@@ -45,7 +45,9 @@ def use_health_item():
     else:
         player.inventory['Health Potion'] -= 1
         print(f"You used a Health Potion. You have {player.inventory['Health Potion']} health items left")
-        return player.hp + health_item.hp_restored # add in not to go above max health
+        player.hp = player.hp + health_item.hp_restored
+        if player.hp > player.max_hp:
+            player.hp = player.max_hp
 
 # Use power up function
 def use_pwr_up():
@@ -54,7 +56,7 @@ def use_pwr_up():
     else:
         player.inventory['Power Up'] -= 1
         print(f"You used a Power Up. You have {player.inventory['Power Up']} power ups left")
-        return opponent.hp - (player.basic_attack + power_up.dmg_added)
+        opponent.hp = opponent.hp - (player.basic_attack + power_up.dmg_added)
 
 def player_action():
     action_options = ['Basic attack', 'Special attack', 'Use item']
@@ -88,9 +90,11 @@ def player_action():
                 if item_options_sel == 0:
                     clearing.clear()
                     use_health_item()
+                    hud()
                 if item_options_sel == 1:
                     clearing.clear()
                     use_pwr_up()
+                    hud()
                 if item_options_sel == 2:
                     item_menu_back = True
 
@@ -99,15 +103,17 @@ if __name__ == "__main__":
 
 def action_sequence():
     while player.hp > 0 and opponent.hp > 0:
-        print('\n-------------------------------------------')
-        print(f'Player health: {player.hp}     Opponent health: {opponent.hp}')
-        print(f"Health item: {player.inventory['Health Potion']}\nPower up: {player.inventory['Power Up']}\n")
+        hud()
         player_action()
         if opponent.hp > 0:
             opponent_attack()
-        elif opponent.hp <= 0:
-            print('Congrats! You won')
-            quitting = True
-        elif player.hp <= 0:
-            print('Too bad, you lost!')
-            quitting = True
+    clearing.clear()
+    if opponent.hp <= 0:
+        print('Congrats! You won')
+    elif player.hp <= 0:
+        print('Too bad, you lost!')
+
+def hud():
+    print('\n-------------------------------------------')
+    print(f'Player health: {player.hp}     Opponent health: {opponent.hp}')
+    print(f"Health item: {player.inventory['Health Potion']}\nPower up: {player.inventory['Power Up']}\n")
