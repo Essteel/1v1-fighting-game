@@ -1,5 +1,6 @@
 from simple_term_menu import TerminalMenu
 import modules.character as character
+import modules.exception as exception
 
 # Code to run the start menu for viewing character stats and character selection
 def start_menu_main():
@@ -39,8 +40,12 @@ def start_menu_main():
                 elif char_options_sel == 4:
                     char_menu_back = True
             char_menu_back = False
-        elif start_options_sel == 2:
-            quit_menu = True
+        try:
+            if start_options_sel == 2:
+                quit_menu = True
+                raise exception.QuitGame
+        except exception.QuitGame:
+            print('Thanks for playing!')
 
 if __name__ == "__main__":
     start_menu_main()

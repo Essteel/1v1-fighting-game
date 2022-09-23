@@ -2,10 +2,11 @@ from simple_term_menu import TerminalMenu
 import modules.items as items
 import modules.attack as attack
 import modules.character as character
+import modules.exception as exception
 import clearing
 
 def player_action():
-    action_options = ['Basic attack', 'Special attack', 'Use item']
+    action_options = ['Basic attack', 'Special attack', 'Use item', 'Quit']
     action_taken = False
     action_menu = TerminalMenu(action_options,
     clear_screen = False,
@@ -43,6 +44,14 @@ def player_action():
                     hud()
                 if item_options_sel == 2:
                     item_menu_back = True
+        try:
+            if action_options_sel == 3:
+                character.player.hp = 0
+                character.opponent.hp = 0
+                raise exception.QuitGame
+        except exception.QuitGame:
+            print('Thanks for playing!')
+            break
 
 if __name__ == "__main__":
     player_action()
@@ -54,7 +63,9 @@ def action_sequence():
         if character.opponent.hp > 0:
             attack.opponent_attack()
     clearing.clear()
-    if character.opponent.hp <= 0:
+    if character.player.hp == 0 and character.opponent.hp == 0:
+        print('Thanks for playing!')
+    elif character.opponent.hp <= 0:
         print('Congrats! You won')
     elif character.player.hp <= 0:
         print('Too bad, you lost!')

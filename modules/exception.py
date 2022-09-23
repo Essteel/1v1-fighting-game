@@ -1,5 +1,5 @@
 class InputError(Exception):
     pass
 
-class IncorrectKey(Exception):
+class QuitGame(Exception):
     pass
