@@ -9,7 +9,7 @@ import action_menu
 play = True
 replay = False
 
-while play is True and replay is False:
+while play is True or replay is False:
 # Welcome screen
     if replay is True:
         items.replay_items()
@@ -27,16 +27,14 @@ while play is True and replay is False:
 
     text_art.fight_text()
 
+    # Checks whether the user would like to replay the game
     user_input = input('\nEnter \'q\' to exit or \'a\' to try again: ')
-    
-    try:
+    while user_input != 'q' and user_input != 'a':
+        user_input = input('Please enter \'q\' or \'a\' and press Enter: ')
         if user_input == 'q':
             print('Thanks for playing!')
             play = False
         elif user_input == 'a':
-            replay is True
-        elif user_input != 'q' or 'a':
-            while user_input != 'q' or 'a':
-                raise TypeError
-    except TypeError:
-        input('Please enter \'q\' or \'a\ and press Enter: ')
+            play = True
+            replay = True
+        
