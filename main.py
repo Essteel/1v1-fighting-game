@@ -5,6 +5,7 @@ import modules.items as items
 import modules.exception as exception
 import start_menu
 import action_menu
+import readchar
 
 
 play = True
@@ -16,7 +17,9 @@ while play is True:
         items.replay_items()
     clearing.clear()
     text_art.title_text()
-    input('\n Press Enter to continue')
+    print('\n Press any key')
+
+    key = readchar.readkey()
 
     start_menu.start_menu_main()
 
