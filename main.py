@@ -1,6 +1,8 @@
-import text_art
-import start_menu, action_menu
 import clearing
+import modules.text_art as text_art
+import modules.character as character
+import modules.items as items
+import start_menu, action_menu
 
 
 play = True
@@ -9,7 +11,7 @@ replay = False
 while play == True and replay == False:
 # Welcome screen
     if replay == True:
-        action_menu.replay_items()
+        items.replay_items()
     clearing.clear()
     text_art.title_text()
     input('\n Press Enter to continue')
@@ -17,7 +19,7 @@ while play == True and replay == False:
     start_menu.start_menu_main()
 
     # Calls the function to randomly assign an opponent
-    start_menu.select_opponent()
+    character.select_opponent()
 
     # Executes the action menu for selecting options during battle
     action_menu.action_sequence()
