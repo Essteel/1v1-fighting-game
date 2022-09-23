@@ -4,9 +4,12 @@ import clearing
 
 
 play = True
+replay = False
 
-while play:
+while play == True and replay == False:
 # Welcome screen
+    if replay == True:
+        action_menu.replay_items()
     clearing.clear()
     text_art.title_text()
     input('\n Press Enter to continue')
@@ -25,3 +28,5 @@ while play:
     if user_input == 'q':
         print('Thanks for playing!')
         play = False
+    elif user_input == 'a':
+        replay == True
