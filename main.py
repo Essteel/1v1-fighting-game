@@ -2,15 +2,16 @@ import clearing
 import modules.text_art as text_art
 import modules.character as character
 import modules.items as items
-import start_menu, action_menu
+import start_menu
+import action_menu
 
 
 play = True
 replay = False
 
-while play == True and replay == False:
+while play is True and replay is False:
 # Welcome screen
-    if replay == True:
+    if replay is True:
         items.replay_items()
     clearing.clear()
     text_art.title_text()
@@ -27,8 +28,15 @@ while play == True and replay == False:
     text_art.fight_text()
 
     user_input = input('\nEnter \'q\' to exit or \'a\' to try again: ')
-    if user_input == 'q':
-        print('Thanks for playing!')
-        play = False
-    elif user_input == 'a':
-        replay == True
+    
+    try:
+        if user_input == 'q':
+            print('Thanks for playing!')
+            play = False
+        elif user_input == 'a':
+            replay is True
+        elif user_input != 'q' or 'a':
+            while user_input != 'q' or 'a':
+                raise TypeError
+    except TypeError:
+        input('Please enter \'q\' or \'a\ and press Enter: ')
