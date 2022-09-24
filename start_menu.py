@@ -1,4 +1,5 @@
 from simple_term_menu import TerminalMenu
+import clearing
 import modules.character as character
 import modules.exception as exception
 
@@ -31,19 +32,41 @@ def start_menu_main():
             while char_menu_back == False:
                 char_options_sel = char_menu.show()
                 if char_options_sel == 0:
-                    print('1 = Bella Brawler, 2 = Monty Mischief, 3 = Sayo Swift, 4 = Dave Danger')
-                    char_num = int(input('Please select the character you want to play as: '))
-                    try:
-                        if char_num == 1:
-                            print('You selected Bella')
-                        elif char_num == 2:
-                            print('You selected Monty')
-                        elif char_num == 3:
-                            print('You selected Sayo')
-                        elif char_num == 4:
-                            print('You selected Dave')
-                    except ValueError:
-                        print('Please select a character by entering a number between 1-4')
+                    valid_input = False
+                    while valid_input == False:
+                        try:
+                            print('1 = Bella Brawler, 2 = Monty Mischief, 3 = Sayo Swift, 4 = Dave Danger')
+                            char_num = int(input('Please select the character you want to play as: '))
+                            if char_num == 1:
+                                clearing.clear()
+                                print('You selected Bella')
+                                valid_input = True
+                                return character.select_character(character.bella_brawler)
+                            elif char_num == 2:
+                                clearing.clear()
+                                print('You selected Monty')
+                                valid_input = True
+                                return character.select_character(character.monty_mischief)
+                            elif char_num == 3:
+                                clearing.clear()
+                                print('You selected Sayo')
+                                valid_input = True
+                                return character.select_character(character.sayo_swift)
+                            elif char_num == 4:
+                                clearing.clear()
+                                print('You selected Dave')
+                                valid_input = True
+                                return character.select_character(character.dave_danger)
+                            elif char_num > 4:
+                                raise exception.RangeError
+                        except ValueError:
+                            clearing.clear()
+                            print('Please select a character by entering a number between 1-4\n')
+                            valid_input = False
+                        except exception.RangeError:
+                            clearing.clear()
+                            print('That wasn\'t a number between 1-4. Please try again\n')
+                            valid_input = False
                 if char_options_sel == 1:
                     char_menu_back = True
             char_menu_back = False

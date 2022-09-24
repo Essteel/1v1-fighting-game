@@ -1,9 +1,6 @@
 
-class NavigationError(Exception):
+class RangeError(Exception):
     pass
 
 class InputError(Exception):
-    pass
-
-class QuitError(Exception):
     pass
