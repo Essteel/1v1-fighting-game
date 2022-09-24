@@ -34,17 +34,17 @@ def get_character_stats():
 # Function for player character selection
 def select_character(choice):
     if choice == bella_brawler:
-        player.__dict__ = bella_brawler.__dict__
+        copy_attributes(bella_brawler, player)
     elif choice == monty_mischief:
-        player.__dict__ = monty_mischief.__dict__
+        copy_attributes(monty_mischief, player)
     elif choice == sayo_swift:
-        player.__dict__ = sayo_swift.__dict__
+        copy_attributes(sayo_swift, player)
     else:
-        player.__dict__ = dave_danger.__dict__
+        copy_attributes(dave_danger, player)
 
 # Function to copy selected character attributes to opponent
 def copy_attributes(charattr, oppattr):
-    names = ['name', 'hp', 'max_hp', 'basic_attack', 'special_attack']
+    names = ['name', 'hp', 'max_hp', 'basic_attack', 'special_attack', 'special_atk_guage', 'inventory']
     for name in names:
         if hasattr(charattr, name):
             value = getattr(charattr, name)
