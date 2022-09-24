@@ -2,7 +2,6 @@ from simple_term_menu import TerminalMenu
 import modules.items as items
 import modules.attack as attack
 import modules.character as character
-import modules.exception as exception
 import clearing
 
 def player_action():

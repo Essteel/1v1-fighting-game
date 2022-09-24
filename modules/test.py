@@ -1,3 +1,4 @@
+import pytest
 import character
 
 class TestSelectCharacter:
@@ -24,6 +25,12 @@ class TestSelectCharacter:
         assert character.player.special_attack == 80
         character.select_character(character.bella_brawler)
         assert character.player.special_attack == 50
+
+    def test_copy_attr(self):
+        character.copy_attributes(character.bella_brawler, character.opponent)
+        assert character.opponent.__dict__ == {'name': 'Bella Brawler', 'max_hp': 350, 'hp': 350, 'basic_attack': 30, 'special_attack': 50}
+        character.copy_attributes(character.dave_danger, character.opponent)
+        assert character.opponent.__dict__ == {'name': 'Dave Danger', 'max_hp': 175, 'hp': 175, 'basic_attack': 50, 'special_attack': 80}
 
 class TestAttacks:
     def test_attack_power(self):
