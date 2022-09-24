@@ -1,4 +1,5 @@
 import random
+from webbrowser import get
 
 class Character:
     def __init__(self, name, hp, max_hp, basic_attack, special_attack):
@@ -34,37 +35,21 @@ def get_character_stats():
 # Function for player character selection
 def select_character(choice):
     if choice == bella_brawler:
-        player.name = bella_brawler.name
-        player.hp = bella_brawler.hp
-        player.max_hp = bella_brawler.max_hp
-        player.basic_attack = bella_brawler.basic_attack
-        player.special_attack = bella_brawler.special_attack
-        player.special_atk_guage = bella_brawler.special_atk_guage
-        player.inventory = bella_brawler.inventory
+        player.__dict__ = bella_brawler.__dict__
     elif choice == monty_mischief:
-        player.name = monty_mischief.name
-        player.hp = monty_mischief.hp
-        player.max_hp = monty_mischief.max_hp
-        player.basic_attack = monty_mischief.basic_attack
-        player.special_attack = monty_mischief.special_attack
-        player.special_atk_guage = monty_mischief.special_atk_guage
-        player.inventory = monty_mischief.inventory
+        player.__dict__ = monty_mischief.__dict__
     elif choice == sayo_swift:
-        player.name = sayo_swift.name
-        player.hp = sayo_swift.hp
-        player.max_hp = sayo_swift.max_hp
-        player.basic_attack = sayo_swift.basic_attack
-        player.special_attack = sayo_swift.special_attack
-        player.special_atk_guage = sayo_swift.special_atk_guage
-        player.inventory = sayo_swift.inventory
+        player.__dict__ = sayo_swift.__dict__
     else:
-        player.name = dave_danger.name
-        player.hp = dave_danger.hp
-        player.max_hp = dave_danger.max_hp
-        player.basic_attack = dave_danger.basic_attack
-        player.special_attack = dave_danger.special_attack
-        player.special_atk_guage = dave_danger.special_atk_guage
-        player.inventory = dave_danger.inventory
+        player.__dict__ = dave_danger.__dict__
+
+# Function to copy selected character attributes to opponent
+def copy_attributes(charattr, oppattr):
+    names = ['name', 'hp', 'max_hp', 'basic_attack', 'special_attack']
+    for name in names:
+        if hasattr(charattr, name):
+            value = getattr(charattr, name)
+            setattr(oppattr, name, value)
 
 # Function for opponent character selection
 def select_opponent():
@@ -76,26 +61,10 @@ def select_opponent():
             opponent_list.append(i)
     opponent_choice = random.choice(opponent_list)
     if opponent_choice == 'Bella Brawler':
-        opponent.name = bella_brawler.name
-        opponent.hp = bella_brawler.hp
-        opponent.max_hp = bella_brawler.max_hp
-        opponent.basic_attack = bella_brawler.basic_attack
-        opponent.special_attack = bella_brawler.special_attack
+        copy_attributes(bella_brawler, opponent)
     elif opponent_choice == 'Monty Mischief':
-        opponent.name = monty_mischief.name
-        opponent.hp = monty_mischief.hp
-        opponent.max_hp = monty_mischief.max_hp
-        opponent.basic_attack = monty_mischief.basic_attack
-        opponent.special_attack = monty_mischief.special_attack
+        copy_attributes(monty_mischief, opponent)
     elif opponent_choice == 'Sayo Swift':
-        opponent.name = sayo_swift.name
-        opponent.hp = sayo_swift.hp
-        opponent.max_hp = sayo_swift.max_hp
-        opponent.basic_attack = sayo_swift.basic_attack
-        opponent.special_attack = sayo_swift.special_attack
+        copy_attributes(sayo_swift, opponent)
     elif opponent_choice == 'Dave Danger':
-        opponent.name = dave_danger.name
-        opponent.hp = dave_danger.hp
-        opponent.max_hp = dave_danger.max_hp
-        opponent.basic_attack = dave_danger.basic_attack
-        opponent.special_attack = dave_danger.special_attack
+        copy_attributes(dave_danger, opponent)

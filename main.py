@@ -26,6 +26,9 @@ while play is True:
     # Calls the function to randomly assign an opponent
     character.select_opponent()
 
+    print(character.player.__dict__)
+    print(character.opponent.__dict__)
+
     # Executes the action menu for selecting options during battle
     action_menu.action_sequence()
 
