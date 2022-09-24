@@ -60,7 +60,7 @@ def action_sequence():
         if character.opponent.hp > 0:
             attack.opponent_attack()
     clearing.clear()
-    if character.player.hp == 0 and character.opponent.hp >= 0:
+    if character.player.hp == 0 and character.opponent.hp == 0:
         print('Thanks for playing!')
     elif character.opponent.hp <= 0:
         print('Congrats! You won')

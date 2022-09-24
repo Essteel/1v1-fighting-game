@@ -57,7 +57,7 @@ def start_menu_main():
                                 print('You selected Dave')
                                 valid_input = True
                                 return character.select_character(character.dave_danger)
-                            elif char_num > 4:
+                            elif char_num > 4 or char_num < 1:
                                 raise exception.RangeError
                         except ValueError:
                             clearing.clear()
