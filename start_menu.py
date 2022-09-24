@@ -46,10 +46,8 @@ def start_menu_main():
                     valid_input = False
                     while valid_input is False:
                         try:
-                            print('''1 = Bella Brawler, 2 = Monty Mischief,
-                             3 = Sayo Swift, 4 = Dave Danger''')
-                            char_num = int(input('''Please select the character
-                             you want to play as: '''))
+                            print('1 = Bella Brawler, 2 = Monty Mischief, 3 = Sayo Swift, 4 = Dave Danger\n')
+                            char_num = int(input('Please select the character you want to play as: '))
                             if char_num == 1:
                                 clearing.clear()
                                 print('You selected Bella')
@@ -87,6 +85,8 @@ def start_menu_main():
             character.player.hp = 0
             character.opponent.hp = 0
             break
+# Calls the function to randomly assign an opponent
+character.select_opponent()
 
 if __name__ == "__main__":
     start_menu_main()

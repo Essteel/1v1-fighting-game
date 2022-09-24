@@ -24,8 +24,7 @@ def use_health_item():
         print('You have no Health Potions')
     else:
         character.player.inventory['Health Potion'] -= 1
-        print(f"""You used a Health Potion. You have
-         {character.player.inventory['Health Potion']} health items left""")
+        print(f"""You used a Health Potion. You have {character.player.inventory['Health Potion']} health items left""")
         character.player.hp = character.player.hp + health_item.hp_restored
         if character.player.hp > character.player.max_hp:
             character.player.hp = character.player.max_hp
@@ -42,6 +41,4 @@ def use_pwr_up():
         character.player.inventory['Power Up'] -= 1
         print(f"""You used a Power Up. You have
          {character.player.inventory['Power Up']} power ups left""")
-        character.opponent.hp = character.opponent.hp - (
-            character.player.basic_attack + power_up.dmg_added
-            )
+        character.opponent.hp = character.opponent.hp - (character.player.basic_attack + power_up.dmg_added)

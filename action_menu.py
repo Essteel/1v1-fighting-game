@@ -74,5 +74,4 @@ def hud():
     """ Displays the player and opponent health and inventory """
     print('\n-------------------------------------------')
     print(f'Player health: {character.player.hp}     Opponent health: {character.opponent.hp}')
-    print(f"""Health item: {character.player.inventory['Health Potion']}\n
-    Power up: {character.player.inventory['Power Up']}\n""")
+    print(f"Health item: {character.player.inventory['Health Potion']}\nPower up: {character.player.inventory['Power Up']}\n")

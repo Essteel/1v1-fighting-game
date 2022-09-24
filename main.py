@@ -29,9 +29,6 @@ while PLAY is True:
     # Executes the start menu for selecting a character
     start_menu.start_menu_main()
 
-    # Calls the function to randomly assign an opponent
-    character.select_opponent()
-
     # Executes the action menu for selecting options during battle
     action_menu.action_sequence()
 
@@ -42,7 +39,7 @@ while PLAY is True:
     while VALID_INPUT is False:
         try:
             user_input = input('\nEnter \'q\' to exit or \'a\' to try again: ')
-            if user_input != 'q' and user_input != 'a':
+            if user_input not in ('q', 'a'):
                 raise exception.InputError
         except exception.InputError:
             print('Invalid input, enter \'q\' or \'a\'')

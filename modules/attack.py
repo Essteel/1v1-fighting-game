@@ -8,7 +8,7 @@ from modules import character
 def basic_attack():
     """ Function for player to perform a basic attack """
     success = random.randint(0, 20)
-    if success == 20:
+    if success >= 19:
         print('Critical hit! You got a power up')
         character.player.inventory['Power Up'] = character.player.inventory.get('Power Up') + 1
     elif success >= 12:
@@ -20,7 +20,7 @@ def basic_attack():
 # Opponent attack function
 def opponent_attack():
     """ Function for opponent to perform an attack """
-    print('Your opponent attacked')
+    print('\nYour opponent attacked')
     character.player.hp = character.player.hp - character.opponent.basic_attack
 
 # Special attack function
@@ -28,8 +28,7 @@ def special_attack():
     """ Function for player to perform a special attack """
     if character.player.special_atk_guage > 0:
         character.player.special_atk_guage -= 1
-        print(f'''You used a special attack. You have
-         {character.player.special_atk_guage} special attacks left''')
+        print(f'You used a special attack. You have {character.player.special_atk_guage} special attacks left')
         character.opponent.hp = character.opponent.hp - character.player.special_attack
     else:
         print('Oh no! You\'re all out of Special Attacks')
