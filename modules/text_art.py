@@ -1,4 +1,7 @@
+""" Functions for displaying text art """
+
 def title_text():
+    """ Function to display title text art """
     print("""
    ___       __  __               ______              __    _____      __   __  __
   / _ \__ __/ /_/ /  ___  ___    / __/ /________ ___ / /_  / __(_)__ _/ /  / /_/ /
@@ -8,6 +11,7 @@ def title_text():
     """)
 
 def fight_text():
+    """ Function to display game over text art """
     print("""
                       GAME OVER!                                 
              @@@                   @@@.                  
