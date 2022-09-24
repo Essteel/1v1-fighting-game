@@ -27,14 +27,12 @@ class TestSelectCharacter:
         assert character.player.special_attack == 50
 
     def test_copy_attr(self):
-        """ Tests that the values for the opponent attributes are correctly assigned """
-        character.copy_attributes(character.bella_brawler, character.opponent)
-        assert character.opponent.__dict__ == {'name': 'Bella Brawler', 'max_hp': 350,
-        'hp': 350, 'basic_attack': 30, 'special_attack': 50}
+        """ Tests that the function correctly assigns the values for the character selected """
+        character.copy_attributes(character.bella_brawler, character.player)
+        assert character.player.__dict__ == character.bella_brawler.__dict__
 
-        character.copy_attributes(character.dave_danger, character.opponent)
-        assert character.opponent.__dict__ == {'name': 'Dave Danger', 'max_hp': 175,
-        'hp': 175, 'basic_attack': 50, 'special_attack': 80}
+        character.copy_attributes(character.dave_danger, character.player)
+        assert character.player.__dict__ == character.dave_danger.__dict__
 
 class TestAttacks:
     """ Tests that attack values are calculated correctly"""
