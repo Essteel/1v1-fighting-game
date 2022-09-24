@@ -1,6 +1,9 @@
+""" Character classes and functions """
+
 import random
 
 class Character:
+    """ Character class """
     def __init__(self, name, hp, max_hp, basic_attack, special_attack):
         self.name = name
         self.max_hp = max_hp
@@ -9,6 +12,7 @@ class Character:
         self.special_attack = special_attack
 
 class Player(Character):
+    """ Player class """
     def __init__(self, name, hp, max_hp, basic_attack, special_attack, special_atk_guage, inventory):
         super().__init__(name, hp, max_hp, basic_attack, special_attack)
         self.special_atk_guage = special_atk_guage
@@ -26,13 +30,26 @@ opponent = Character('', 0, 0, 0, 0)
 
 # Function that will allow user to view a list of characters and their stats
 def get_character_stats():
-    print(f'Name: {bella_brawler.name} | Health: {bella_brawler.max_hp} | Basic attack power: {bella_brawler.basic_attack} | Special attack power: {bella_brawler.special_attack}\n')
-    print(f'Name: {monty_mischief.name} | Health: {monty_mischief.max_hp} | Basic attack power: {monty_mischief.basic_attack} | Special attack power: {monty_mischief.special_attack}\n')
-    print(f'Name: {sayo_swift.name} | Health: {sayo_swift.max_hp} | Basic attack power: {sayo_swift.basic_attack} | Special attack power: {sayo_swift.special_attack}\n')
-    print(f'Name: {dave_danger.name} | Health: {dave_danger.max_hp} | Basic attack power: {dave_danger.basic_attack} | Special attack power: {dave_danger.special_attack}\n')
+    """ Function to print out important character stats """
+    print(f'''Name: {bella_brawler.name} | Health: {bella_brawler.max_hp} | Basic attack power:
+     {bella_brawler.basic_attack} | Special attack power: {bella_brawler.special_attack}\n''')
+
+    print(f'''Name: {monty_mischief.name} | Health: {monty_mischief.max_hp} | Basic attack power:
+     {monty_mischief.basic_attack} | Special attack power: {monty_mischief.special_attack}\n''')
+
+    print(f'''Name: {sayo_swift.name} | Health: {sayo_swift.max_hp} | Basic attack power:
+     {sayo_swift.basic_attack} | Special attack power: {sayo_swift.special_attack}\n''')
+
+    print(f'''Name: {dave_danger.name} | Health: {dave_danger.max_hp} | Basic attack power:
+     {dave_danger.basic_attack} | Special attack power: {dave_danger.special_attack}\n''')
 
 # Function for player character selection
 def select_character(choice):
+    """ Function to assign selected character as player
+
+    Args:
+        choice (class object): contains the attributes for each character
+    """
     if choice == bella_brawler:
         copy_attributes(bella_brawler, player)
     elif choice == monty_mischief:
@@ -44,7 +61,14 @@ def select_character(choice):
 
 # Function to copy selected character attributes to opponent
 def copy_attributes(charattr, oppattr):
-    names = ['name', 'hp', 'max_hp', 'basic_attack', 'special_attack', 'special_atk_guage', 'inventory']
+    """ Function to copy selected character attributes to player / opponent
+
+    Args:
+        charattr (class object): contains attributes for one of the characters
+        oppattr (class object): contains attributes for the opponent
+    """
+    names = ['name', 'hp', 'max_hp', 'basic_attack', 'special_attack',
+     'special_atk_guage', 'inventory']
     for name in names:
         if hasattr(charattr, name):
             value = getattr(charattr, name)
@@ -52,6 +76,7 @@ def copy_attributes(charattr, oppattr):
 
 # Function for opponent character selection
 def select_opponent():
+    """ Funtion to assign selected character as opponent """
     opponent_options = [bella_brawler.name, monty_mischief.name, sayo_swift.name, dave_danger.name]
     opponent_list = []
     player_choice = player.name

@@ -1,26 +1,32 @@
+""" Runs the program """
+
 import clearing
-import modules.text_art as text_art
-import modules.character as character
-import modules.items as items
-import modules.exception as exception
-import start_menu
-import action_menu
 import readchar
 
+from modules import text_art
+from modules import character
+from modules import items
+from modules import exception
+import start_menu
+import action_menu
 
-play = True
-replay = False
+PLAY = True
+REPLAY = False
 
-while play is True:
-# Welcome screen
-    if replay is True:
+# Runs the game until the user decides to replay or quit
+while PLAY is True:
+    if REPLAY is True:
+        # Replenishes players inventory on replay
         items.replay_items()
+    # Welcome screen with name of game
     clearing.clear()
     text_art.title_text()
     print('\n Press any key')
 
+    # Waits for user to press a key before continuing
     key = readchar.readkey()
 
+    # Executes the start menu for selecting a character
     start_menu.start_menu_main()
 
     # Calls the function to randomly assign an opponent
@@ -32,8 +38,8 @@ while play is True:
     text_art.fight_text()
 
     # Checks whether the user would like to replay the game
-    valid_input = False
-    while valid_input is False:
+    VALID_INPUT = False
+    while VALID_INPUT is False:
         try:
             user_input = input('\nEnter \'q\' to exit or \'a\' to try again: ')
             if user_input != 'q' and user_input != 'a':
@@ -43,10 +49,10 @@ while play is True:
         else:
             if user_input == 'q':
                 print('See you next time!')
-                play = False
-                valid_input = True
+                PLAY = False
+                VALID_INPUT = True
             elif user_input == 'a':
-                play = True
-                replay = True
-                valid_input = True
+                PLAY = True
+                REPLAY = True
+                VALID_INPUT = True
         

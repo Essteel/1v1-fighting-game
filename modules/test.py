@@ -1,3 +1,5 @@
+""" Test cases for character selection and attacks """
+
 import character
 
 class TestSelectCharacter:

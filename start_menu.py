@@ -1,14 +1,25 @@
-from simple_term_menu import TerminalMenu
+""" Runs start menu for character selection """
+
 import clearing
-import modules.character as character
-import modules.exception as exception
+
+from simple_term_menu import TerminalMenu
+from modules import character
+from modules import exception
 
 # Code to run the start menu for viewing character stats and character selection
 def start_menu_main():
+    """_summary_
+
+    Raises:
+        exception.RangeError: _description_
+
+    Returns:
+        _type_: _description_
+    """
     start_options = ['View character stats', 'Select character', 'Quit']
     quit_menu = False
     start_menu = TerminalMenu(start_options, clear_screen = True)
-    
+
     char_options = ['Make selection', 'Back']
     char_menu_back = False
     char_menu = TerminalMenu(char_options, clear_screen = True)
@@ -17,26 +28,28 @@ def start_menu_main():
     stats_menu_back = False
     stats_menu = TerminalMenu(stats_options,clear_screen = False)
 
-    
-    while quit_menu == False:
+
+    while quit_menu is False:
         start_options_sel = start_menu.show()
         if start_options_sel == 0:
             stats_menu_back = False
-            while stats_menu_back == False:
+            while stats_menu_back is False:
                 character.get_character_stats()
                 stats_options_sel = stats_menu.show()
                 if stats_options_sel == 0:
                     stats_menu.clear_screen = True
                     stats_menu_back = True
         elif start_options_sel == 1:
-            while char_menu_back == False:
+            while char_menu_back is False:
                 char_options_sel = char_menu.show()
                 if char_options_sel == 0:
                     valid_input = False
-                    while valid_input == False:
+                    while valid_input is False:
                         try:
-                            print('1 = Bella Brawler, 2 = Monty Mischief, 3 = Sayo Swift, 4 = Dave Danger')
-                            char_num = int(input('Please select the character you want to play as: '))
+                            print('''1 = Bella Brawler, 2 = Monty Mischief,
+                             3 = Sayo Swift, 4 = Dave Danger''')
+                            char_num = int(input('''Please select the character
+                             you want to play as: '''))
                             if char_num == 1:
                                 clearing.clear()
                                 print('You selected Bella')
