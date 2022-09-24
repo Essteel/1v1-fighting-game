@@ -46,13 +46,9 @@ def player_action():
                     item_menu_back = True
                 if item_options_sel == 2:
                     item_menu_back = True
-        try:
-            if action_options_sel == 3:
-                character.player.hp = 0
-                character.opponent.hp = 0
-                raise exception.QuitError
-        except exception.QuitError:
-            print('Thanks for playing!')
+        elif action_options_sel == 3:
+            character.player.hp = 0
+            character.opponent.hp = 0
             break
 
 if __name__ == "__main__":
@@ -65,7 +61,7 @@ def action_sequence():
         if character.opponent.hp > 0:
             attack.opponent_attack()
     clearing.clear()
-    if character.player.hp == 0 and character.opponent.hp == 0:
+    if character.player.hp == 0 and character.opponent.hp >= 0:
         print('Thanks for playing!')
     elif character.opponent.hp <= 0:
         print('Congrats! You won')

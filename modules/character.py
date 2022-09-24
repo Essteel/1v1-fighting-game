@@ -1,5 +1,4 @@
 import random
-from webbrowser import get
 
 class Character:
     def __init__(self, name, hp, max_hp, basic_attack, special_attack):
