@@ -1,5 +1,5 @@
 import random
-import character
+import modules.character as character
 
 # Basic attack function
 def basic_attack():

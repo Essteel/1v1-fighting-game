@@ -37,19 +37,21 @@ def player_action():
                 if item_options_sel == 0:
                     clearing.clear()
                     items.use_health_item()
-                    hud()
+                    action_taken = True
+                    item_menu_back = True
                 if item_options_sel == 1:
                     clearing.clear()
                     items.use_pwr_up()
-                    hud()
+                    action_taken = True
+                    item_menu_back = True
                 if item_options_sel == 2:
                     item_menu_back = True
         try:
             if action_options_sel == 3:
                 character.player.hp = 0
                 character.opponent.hp = 0
-                raise exception.QuitGame
-        except exception.QuitGame:
+                raise exception.QuitError
+        except exception.QuitError:
             print('Thanks for playing!')
             break
 
