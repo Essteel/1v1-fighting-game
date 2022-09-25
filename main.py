@@ -18,6 +18,7 @@ Raises:
 import clearing
 import readchar
 
+from modules import character
 from modules import text_art
 from modules import items
 from modules import exception
@@ -32,9 +33,12 @@ while PLAY is True:
     if REPLAY is True:
         # Replenishes players inventory on replay
         items.replay_items()
+    character.set_player_opponent()
     # Welcome screen with name of game
     clearing.clear()
     text_art.title_text()
+    print(character.player.__dict__)
+    print(character.opponent.__dict__)
     print("\n Press any key")
 
     # Waits for user to press a key before continuing

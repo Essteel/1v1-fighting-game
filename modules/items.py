@@ -82,12 +82,12 @@ def use_pwr_up():
     If they don't have a power up item, prints a message telling
     them so.
     """
-    if character.player.inventory['Power Up'] <= 0:
-        print('You have no Power Ups')
+    if character.player.inventory["Power Up"] <= 0:
+        print("You have no Power Ups")
     else:
-        character.player.inventory['Power Up'] -= 1
-        print(f"""You used a Power Up. You have
-         {character.player.inventory['Power Up']} power ups left""")
+        character.player.inventory["Power Up"] -= 1
+        print("You used a Power Up. You have "
+        f"{character.player.inventory['Power Up']} power ups left")
         character.opponent.health = character.opponent.health - (
             character.player.basic_attack + power_up.dmg_added
             )
@@ -99,5 +99,5 @@ def replay_items():
     resets the players inventory to contain 2 health items and
     0 power ups.
     """
-    character.player.inventory['Health Potion'] = 2
-    character.player.inventory['Power Up'] = 0
+    character.player.inventory["Health Potion"] = 2
+    character.player.inventory["Power Up"] = 0

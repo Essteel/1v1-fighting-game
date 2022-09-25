@@ -69,22 +69,26 @@ def start_menu_main():
                                 clearing.clear()
                                 print("You selected Bella")
                                 valid_input = True
-                                return character.select_character(character.bella_brawler)
+                                return character.select_character(
+                                    character.bella_brawler), character.select_opponent()
                             elif char_num == 2:
                                 clearing.clear()
                                 print("You selected Monty")
                                 valid_input = True
-                                return character.select_character(character.monty_mischief)
+                                return character.select_character(
+                                    character.monty_mischief), character.select_opponent()
                             elif char_num == 3:
                                 clearing.clear()
                                 print("You selected Sayo")
                                 valid_input = True
-                                return character.select_character(character.sayo_swift)
+                                return character.select_character(
+                                    character.sayo_swift), character.select_opponent()
                             elif char_num == 4:
                                 clearing.clear()
                                 print("You selected Dave")
                                 valid_input = True
-                                return character.select_character(character.dave_danger)
+                                return character.select_character(
+                                    character.dave_danger), character.select_opponent()
                             elif char_num > 4 or char_num < 1:
                                 raise exception.RangeError
                         except ValueError:
@@ -102,8 +106,9 @@ def start_menu_main():
             character.player.health = 0
             character.opponent.health = 0
             break
-# Calls the function to randomly assign an opponent
-character.select_opponent()
 
 if __name__ == "__main__":
     start_menu_main()
+
+# Calls the function to randomly assign an opponent
+
