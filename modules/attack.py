@@ -54,10 +54,10 @@ def special_attack():
     gauge is 0 a message is printed stating they have no special
     attacks left.
     """
-    if character.player.special_atk_guage > 0:
-        character.player.special_atk_guage -= 1
+    if character.player.special_atk_gauge > 0:
+        character.player.special_atk_gauge -= 1
         print("You used a special attack. You have "
-        f"{character.player.special_atk_guage} special attacks left")
+        f"{character.player.special_atk_gauge} special attacks left")
         character.opponent.health = character.opponent.health - character.player.special_attack
     else:
         print("Oh no! You\'re all out of Special Attacks")

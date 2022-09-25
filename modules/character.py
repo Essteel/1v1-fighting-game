@@ -51,7 +51,7 @@ class Player(Character):
     """ A subclass of Character used to represent the player
 
     This class inherits most of the functionality of the Player
-    class but adds additional attributes special_atk_guage and
+    class but adds additional attributes special_atk_gauge and
     inventory.
 
     Attributes
@@ -66,17 +66,17 @@ class Player(Character):
         the value of the character's basic attack damage
     special_attack : int
         the value of the character's special attack damage
-    special_atk_guage : int
+    special_atk_gauge : int
         the current number of special attacks available
     inventory : dict
         stores the number of available health potions and power ups
     """
 
     def __init__(self, name, health, max_hp, basic_attack,
-     special_attack, special_atk_guage, inventory
+     special_attack, special_atk_gauge, inventory
     ):
         super().__init__(name, health, max_hp, basic_attack, special_attack)
-        self.special_atk_guage = special_atk_guage
+        self.special_atk_gauge = special_atk_gauge
         self.inventory = inventory
 
 # Create character objects
@@ -171,7 +171,7 @@ def copy_attributes(charattr, oppattr):
         oppattr (class object): contains attributes for the opponent
     """
     names = ["name", "health", "max_hp", "basic_attack",
-     "special_attack", "special_atk_guage", "inventory"
+     "special_attack", "special_atk_gauge", "inventory"
      ]
     for name in names:
         if hasattr(charattr, name):
