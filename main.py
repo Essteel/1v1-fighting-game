@@ -48,16 +48,16 @@ while PLAY is True:
     # Executes the action menu for selecting options during battle
     action_menu.action_sequence()
 
-    text_art.fight_text()
-
     # Checks whether the user would like to replay the game
     VALID_INPUT = False
     while VALID_INPUT is False:
+        text_art.fight_text()
         try:
             user_input = input("\nEnter \'q\' to exit or \'a\' to try again: ")
             if user_input not in ("q", "a"):
                 raise exception.InputError
         except exception.InputError:
+            clearing.clear()
             print("Invalid input, enter \'q\' or \'a\'")
         else:
             if user_input == "q":
