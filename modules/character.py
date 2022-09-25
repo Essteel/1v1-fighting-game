@@ -95,7 +95,7 @@ dave_danger = Player("Dave Danger", 175, 175, 50, 80, 2,
 {"Health Potion" : 2, "Power Up" : 0})
 
 # Create player and opponent objects
-player = Player("", 0, 0, 0, 0, 0, [""])
+player = Player("", 0, 0, 0, 0, 0, {})
 opponent = Character("", 0, 0, 0)
 
 # Function that will allow user to view a list of characters and their stats
