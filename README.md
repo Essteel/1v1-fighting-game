@@ -42,19 +42,19 @@ I used Agile methodology to implement my plan for creating the application. This
 
 I created a card for features that I wanted to implement within the program. I organised them by priority with the most important cards to complete at the top with a traffic light label system and added target dates for completion.
 
-![Beginning of creation of a Trello board for the project](docs/trello_initial_setup.png)
+![trello_initial_setup](https://user-images.githubusercontent.com/110761232/192143355-ca1c6928-d4d9-4031-808e-2ac69bfc472f.png)
 
 Each feature has a card with a checklist of things for me to complete to get the feature working. They are also labelled with either High, Medium or Low priority as well as an ideal date for completion.
 
-![Checklist of a card in trello](docs/trello_card.png)
+![trello_card](https://user-images.githubusercontent.com/110761232/192143372-461aa974-06d0-451c-a261-47309fe153f1.png)
 
 I created the board with four columns so that I could see which stage I was at with each feature and cross-check this with the completion date and how many of the checklist items were completed. I would check the board when I took breaks to ensure that I was on track and to check of the tasks that were completed.
 
-![Midway through project trello board screenshot](docs/trello_progress.png)
+![trello_progress](https://user-images.githubusercontent.com/110761232/192143383-eb8cc8fc-53ff-4c36-bdd1-e243b534683d.png)
 
 If I had time or decided a feature would be beneficial to the app I could then add it in once I could see that the project was on track for completion and critical features had been tested.
 
-!["Screenshot of project nearly completed in Trello"](docs/trello_near_completion.png)
+![trello_near_completion](https://user-images.githubusercontent.com/110761232/192143394-3f44e3af-5ac8-485b-a3eb-dbe36d07873a.png)
 
 ---
 
@@ -102,11 +102,11 @@ Third party modules (these will be installed automatically if you follow the ins
 
 Upon launching the program the welcome screen is displayed and prompts the user to press any key.
 
-!["Welcome screen for python street fighter game"](docs/welcome_screen.png)
+<img width="602" alt="welcome_screen" src="https://user-images.githubusercontent.com/110761232/192143404-cee50bbc-e7ef-4d39-bb38-32d1100ea4d0.png">
 
 Once a key is pressed, the user will then be presented with a menu with options to view the characters stats, select a character or quit the game. The user can select an option by navigating with the up and down keys and using enter to select an option.
 
-!["Start menu screen for python street fighter game"](docs/start_menu.png)
+<img width="188" alt="start_menu" src="https://user-images.githubusercontent.com/110761232/192143411-73308de9-b527-4733-806e-8f6b76f4e581.png">
 
 Choosing the option to view character stats displays the name, health, attack and special attacks for the four playable characters. They can then use the back option to return to the menu.
 
@@ -116,27 +116,27 @@ If they enter a number that is not between 1-4 or they enter a string, they will
 
 They are then presented with the battle screen which prints a message confirming the character selection, displays a hud with the character and opponent health and inventory as well as the menu for carrying out actions. The user can either choose a basic attack, special attack, use an item or quit the game.
 
-!["Action menu screen for python street fighter game"](docs/action_menu.png)
+<img width="509" alt="action_menu" src="https://user-images.githubusercontent.com/110761232/192143421-13a0401a-296e-4f5f-a02e-60d1562d7bbb.png">
 
 Basic attacks for the player will be successful based on chance. If they hit, the message is printed to the screen and opponents' health is reduced by the player's attack damage. On a failed attack a message will be printed to the screen and the opponents health will not be reduced. The opponent will then attack and their attack always hits.
 
-!["Basic attack python street fighter game"](docs/basic_attack_success.png)
+<img width="328" alt="basic_attack_success" src="https://user-images.githubusercontent.com/110761232/192143428-b3966a83-7088-4e9e-8665-ac2f092aeb69.png">
 
 Players also have 2 special attacks to use per game that do more damage than the basic attack and will always be successful. When a special attack is used a message will be displayed on the screen showing how many special attacks are left and the opponent’s health is reduced by the player’s special attack damage. If the player runs out of special attacks and attempts to use it a message will show telling them they have no special attacks left.
 
-!["Special attack in python street fighter game"](docs/special_attack.png)
+<img width="430" alt="special_attack" src="https://user-images.githubusercontent.com/110761232/192143439-a0dc84a1-f3a8-4e5f-aa28-8d5c75e06013.png">
 
 The user can navigate to the items menu to choose either a health item or a power up. Players start with 2 health items and can use their action to use a health item to restore some hp. The opponent will then still attack. If the player has run out of health items a message will be printed telling the user that they have no health items left. The current number of health items is displayed on the screen.
 
-!["Item menu screen in python street fighter game"](docs/item_menu.png)
+<img width="430" alt="item_menu" src="https://user-images.githubusercontent.com/110761232/192143451-66867413-c95f-484f-8130-c5085268f4bd.png">
 
 Power up items become available if the player scores a critical hit. The number of health items currently available are displayed on the screen. Using a power up as your action will perform an attack, which reduces the opponent’s health by the value of the basic attack plus the value of the power up.
 
-!["Getting a power up in python street fighter game"](docs/got_power_up.png)
+![got_power_up](https://user-images.githubusercontent.com/110761232/192143462-950472d1-12d2-41a8-afeb-e4a0dbe51b69.png)
 
 If the player wins, loses or decides to quit the game at any time they will be taken to the game over screen which will ask them to confirm if they want to quit or play another game. Winning, losing or quitting will result in a different game over message. If the user enters a value that is not ‘q’ or ‘s’ they will be asked to try again.
 
-!["Game over screen for python street fighter game"](docs/game_over_lost.png)
+<img width="430" alt="game_over_lost" src="https://user-images.githubusercontent.com/110761232/192143472-c7b6c4a0-36f8-4cc7-a2d6-087dda445f22.png">
 
 ## Testing
 
@@ -195,19 +195,7 @@ Goodger, D and van Rossum, G, 2001, *PEP 257 - Docstring Conventions*, python.or
 - I created the welcome message ASCII art using 'Patorjk.com':
   <http://patorjk.com/software/taag/>
 
-### Third party modules<img width="509" alt="action_menu" src="https://user-images.githubusercontent.com/110761232/192143176-5b7bc484-e5d2-453b-a5f3-5c14c778052c.png">
-<img width="328" alt="basic_attack_success" src="https://user-images.githubusercontent.com/110761232/192143178-7e414943-2192-4142-a9c8-561c31db0a2d.png">
-<img width="430" alt="game_over_lost" src="https://user-images.githubusercontent.com/110761232/192143180-c505c829-b678-4dc1-be3c-6d5a07de7505.png">
-![got_power_up](https://user-images.githubusercontent.com/110761232/192143182-740ddffd-2728-4054-bf4e-32bb6412c9a2.png)
-<img width="430" alt="item_menu" src="https://user-images.githubusercontent.com/110761232/192143184-a9004761-4304-4f5f-bcc1-3dc8ed08044b.png">
-<img width="430" alt="special_attack" src="https://user-images.githubusercontent.com/110761232/192143185-8209606a-3a3c-4feb-a625-2e3906a91931.png">
-<img width="188" alt="start_menu" src="https://user-images.githubusercontent.com/110761232/192143187-e301ec63-7b46-4a8d-aae0-6fd0bce9a420.png">
-![trello_card](https://user-images.githubusercontent.com/110761232/192143190-1cdf30ef-7554-461f-b843-07e633c1779b.png)
-![trello_initial_setup](https://user-images.githubusercontent.com/110761232/192143191-6677e2a1-d892-4e53-b462-d0de557b966a.png)
-![trello_near_completion](https://user-images.githubusercontent.com/110761232/192143193-da830b6a-7df6-4010-8cb6-07968523bc4b.png)
-![trello_progress](https://user-images.githubusercontent.com/110761232/192143194-d28f73ea-9619-474a-9123-6eff302bed09.png)
-<img width="602" alt="welcome_screen" src="https://user-images.githubusercontent.com/110761232/192143195-ae910755-380b-42f6-9c89-6d06d98acf47.png">
-
+### Third party modules
 
 Clear Module
 Dixon, J, 2020, *Clear Module*, last updated 2020, Python Package Index <https://pypi.org/project/clearing/>
