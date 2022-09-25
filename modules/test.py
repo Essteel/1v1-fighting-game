@@ -90,7 +90,7 @@ class TestAttacks:
         """ Tests the value calculated for opponent hp after player performs a special attack """
         character.select_character(character.sayo_swift)
         character.opponent = character.Character("Bella Brawler", 350, 350, 30)
-        character.opponent.hp = character.opponent.health - character.player.special_attack
+        character.opponent.health = character.opponent.health - character.player.special_attack
         assert character.opponent.health == 290
         character.select_character(character.dave_danger)
         character.opponent = character.Character("Monty Mischief", 200, 200, 40)
