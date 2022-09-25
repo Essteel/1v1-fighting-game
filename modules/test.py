@@ -1,4 +1,24 @@
-""" Test cases for character selection and attacks """
+""" Test cases for python fighter game
+
+Tests elements of two main features of the game: character
+selection and attacks.
+
+Classes
+-------
+TestSelectCharacter
+TestAttacks
+
+Functions
+---------
+test_player_name()
+test_player_hp()
+test_player_special()
+test_copy_attr()
+test_attack_power()
+test_special_power()
+test_attack_damage()
+teset_special_damage()
+"""
 
 import character
 
@@ -7,18 +27,18 @@ class TestSelectCharacter:
     def test_player_name(self):
         """ Tests that the value of the player name attribute is correctly assigned """
         character.select_character(character.bella_brawler)
-        assert character.player.name == 'Bella Brawler'
+        assert character.player.name == "Bella Brawler"
 
         character.select_character(character.monty_mischief)
-        assert character.player.name == 'Monty Mischief'
+        assert character.player.name == "Monty Mischief"
 
     def test_player_hp(self):
         """ Tests that the value of the player hp attribute is correctly assigned """
         character.select_character(character.sayo_swift)
-        assert character.player.hp == 200
+        assert character.player.health == 200
 
         character.select_character(character.dave_danger)
-        assert character.player.hp == 175
+        assert character.player.health == 175
 
     def test_player_special(self):
         """ Tests that the value of the player special attack attribute is correctly assigned """
@@ -57,22 +77,22 @@ class TestAttacks:
     def test_attack_damage(self):
         """ Tests the value calculated for opponent hp after player performs a basic attack """
         character.select_character(character.bella_brawler)
-        character.opponent = character.Character('Monty Mischief', 200, 200, 40, 70)
-        character.opponent.hp = character.opponent.hp - character.player.basic_attack
-        assert character.opponent.hp == 170
+        character.opponent = character.Character("Monty Mischief", 200, 200, 40, 70)
+        character.opponent.health = character.opponent.health - character.player.basic_attack
+        assert character.opponent.health == 170
 
         character.select_character(character.sayo_swift)
-        character.opponent = character.Character('Dave Danger', 175, 175, 50, 80)
-        character.opponent.hp = character.opponent.hp - character.player.basic_attack
-        assert character.opponent.hp == 125
+        character.opponent = character.Character("Dave Danger", 175, 175, 50, 80)
+        character.opponent.health = character.opponent.health - character.player.basic_attack
+        assert character.opponent.health == 125
 
     def test_special_damage(self):
         """ Tests the value calculated for opponent hp after player performs a special attack """
         character.select_character(character.sayo_swift)
-        character.opponent = character.Character('Bella Brawler', 350, 350, 30, 50)
-        character.opponent.hp = character.opponent.hp - character.player.special_attack
-        assert character.opponent.hp == 290
+        character.opponent = character.Character("Bella Brawler", 350, 350, 30, 50)
+        character.opponent.hp = character.opponent.health - character.player.special_attack
+        assert character.opponent.health == 290
         character.select_character(character.dave_danger)
-        character.opponent = character.Character('Monty Mischief', 200, 200, 40, 70)
-        character.opponent.hp = character.opponent.hp - character.player.special_attack
-        assert character.opponent.hp == 120
+        character.opponent = character.Character("Monty Mischief", 200, 200, 40, 70)
+        character.opponent.health = character.opponent.health - character.player.special_attack
+        assert character.opponent.health == 120

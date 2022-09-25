@@ -1,10 +1,24 @@
-""" Runs the program """
+""" Python street fight game
+
+This script allows the user to play the game until they no longer
+wish to continue playing. At the end it asks the user if they
+would like to quit or replay the game.
+
+The game uses simple_term_menu for user input as well as typed
+interaction for some elements of the game.
+
+This script requires the installation of the following packages in
+the Python environment you are running this script in: 'clearing',
+'readchar', 'simple_term_menu', 'random'.
+
+Raises:
+    exception.InputError: raised if the user doesn't enter 'q' or 'a'
+"""
 
 import clearing
 import readchar
 
 from modules import text_art
-from modules import character
 from modules import items
 from modules import exception
 import start_menu
@@ -21,7 +35,7 @@ while PLAY is True:
     # Welcome screen with name of game
     clearing.clear()
     text_art.title_text()
-    print('\n Press any key')
+    print("\n Press any key")
 
     # Waits for user to press a key before continuing
     key = readchar.readkey()
@@ -38,17 +52,17 @@ while PLAY is True:
     VALID_INPUT = False
     while VALID_INPUT is False:
         try:
-            user_input = input('\nEnter \'q\' to exit or \'a\' to try again: ')
-            if user_input not in ('q', 'a'):
+            user_input = input("\nEnter \'q\' to exit or \'a\' to try again: ")
+            if user_input not in ("q", "a"):
                 raise exception.InputError
         except exception.InputError:
-            print('Invalid input, enter \'q\' or \'a\'')
+            print("Invalid input, enter \'q\' or \'a\'")
         else:
-            if user_input == 'q':
-                print('See you next time!')
+            if user_input == "q":
+                print("See you next time!")
                 PLAY = False
                 VALID_INPUT = True
-            elif user_input == 'a':
+            elif user_input == "a":
                 PLAY = True
                 REPLAY = True
                 VALID_INPUT = True

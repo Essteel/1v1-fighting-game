@@ -1,17 +1,13 @@
-""" Custom exception classes """
+""" Custom exception classes for python stret fight game
+
+Classes
+-------
+RangeError
+InputError
+"""
 
 class RangeError(Exception):
-    """ Checks if user input between 1-4
-
-    Args:
-        Exception (_type_): _description_
-    """
-    pass
+    """ Subclass of Exception which checks if user input is between 1-4 """
 
 class InputError(Exception):
-    """ Checks if user input is 'q' or 'a'
-
-    Args:
-        Exception (_type_): _description_
-    """    
-    pass
+    """ Subclass of Exception checks if user input is 'q' or 'a' """

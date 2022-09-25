@@ -1,3 +1,15 @@
+""" The action menu for the python street fight game
+
+This module creates the action menu using simple_term_menu to
+allow the user to choose which action to take. It also runs
+the battle sequence once the user has chosen their action.
+
+Functions
+---------
+action_sequence()
+hud()
+"""
+
 import clearing
 from simple_term_menu import TerminalMenu
 
@@ -6,15 +18,21 @@ from modules import attack
 from modules import character
 
 def player_action():
-    """ Runs the sequence to allow the user to choose an action """
-    action_options = ['Basic attack', 'Special attack', 'Use item', 'Quit']
+    """ A menu which allows the user to choose an action
+
+    Allows the player to choose an action between making a basic
+    attack, special attack, quitting the game or choosing an item
+    from the sub menu. Choosing to attack or use an item counts as
+    an action and the opponent will then take their turn and attack.
+    """
+    action_options = ["Basic attack", "Special attack", "Use item", "Quit"]
     action_taken = False
     action_menu = TerminalMenu(action_options,
     clear_screen = False,
     clear_menu_on_exit = True,
     )
 
-    item_options = ['Health item', 'Power up', 'Back']
+    item_options = ["Health item", "Power up", "Back"]
     item_menu_back = False
     item_menu = TerminalMenu(item_options,
     clear_screen = False,
@@ -48,30 +66,42 @@ def player_action():
                 if item_options_sel == 2:
                     item_menu_back = True
         elif action_options_sel == 3:
-            character.player.hp = 0
-            character.opponent.hp = 0
+            character.player.health = 0
+            character.opponent.health = 0
             break
 
 if __name__ == "__main__":
     player_action()
 
 def action_sequence():
-    """ Runs the battle sequence """
-    while character.player.hp > 0 and character.opponent.hp > 0:
+    """ Runs the battle sequence
+
+    Runs the sequence between player action and opponent attack
+    until either the player or opponent health drops to zero. At
+    this point a message is printed to the screen.
+    """
+    while character.player.health > 0 and character.opponent.health > 0:
         hud()
         player_action()
-        if character.opponent.hp > 0:
+        if character.opponent.health > 0:
             attack.opponent_attack()
     clearing.clear()
-    if character.player.hp == 0 and character.opponent.hp == 0:
-        print('Thanks for playing!')
-    elif character.opponent.hp <= 0:
-        print('Congrats! You won')
-    elif character.player.hp <= 0:
-        print('Too bad, you lost!')
+    if character.player.health == 0 and character.opponent.health == 0:
+        print("Thanks for playing!")
+    elif character.opponent.health <= 0:
+        print("Congrats! You won")
+    elif character.player.health <= 0:
+        print("Too bad, you lost!")
 
 def hud():
-    """ Displays the player and opponent health and inventory """
-    print('\n-------------------------------------------')
-    print(f'Player health: {character.player.hp}     Opponent health: {character.opponent.hp}')
-    print(f"Health item: {character.player.inventory['Health Potion']}\nPower up: {character.player.inventory['Power Up']}\n")
+    """ Displays the player and opponent health and inventory
+
+    Constantly displays  and updates the player and opponent 
+    health as well as the contents of the player inventory during
+    the action sequence.
+    """
+    print("\n-------------------------------------------")
+    print(f"Player health: {character.player.health}     "
+    f"Opponent health: {character.opponent.health}")
+    print(f"Health item: {character.player.inventory['Health Potion']}\n"
+    f"Power up: {character.player.inventory['Power Up']}\n")

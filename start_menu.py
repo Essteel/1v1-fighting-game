@@ -1,4 +1,14 @@
-""" Runs start menu for character selection """
+""" The start menu for the python street fight game
+
+This module creates the start menu using simple_term_menu to
+allow the user to view the stats of the playable characters
+and make a selection for who to play as. It also randomly
+selects an opponent from the remaning characters.
+
+Raises:
+    exception.RangeError: raised if the user doesn't enter a
+    number between 1-4.
+"""
 
 import clearing
 
@@ -8,25 +18,30 @@ from modules import exception
 
 # Code to run the start menu for viewing character stats and character selection
 def start_menu_main():
-    """_summary_
+    """ A menu which allows the player to select a character
+
+    Allows the player to view the stats of the playable characters
+    and make a selection for who to play as. They can also choose
+    to quit the game at this point
 
     Raises:
-        exception.RangeError: _description_
+        exception.RangeError: raised if the user doesn't enter a
+        number between 1-4.
 
     Returns:
-        _type_: _description_
+        class object: contains attributes for the chosen player character
     """
-    start_options = ['View character stats', 'Select character', 'Quit']
+    start_options = ["View character stats", "Select character", "Quit"]
     quit_menu = False
     start_menu = TerminalMenu(start_options, clear_screen = True)
 
-    char_options = ['Make selection', 'Back']
+    char_options = ["Make selection", "Back"]
     char_menu_back = False
     char_menu = TerminalMenu(char_options, clear_screen = True)
 
-    stats_options = ['Back']
+    stats_options = ["Back"]
     stats_menu_back = False
-    stats_menu = TerminalMenu(stats_options,clear_screen = False)
+    stats_menu = TerminalMenu(stats_options, clear_screen = False)
 
 
     while quit_menu is False:
@@ -46,44 +61,46 @@ def start_menu_main():
                     valid_input = False
                     while valid_input is False:
                         try:
-                            print('1 = Bella Brawler, 2 = Monty Mischief, 3 = Sayo Swift, 4 = Dave Danger\n')
-                            char_num = int(input('Please select the character you want to play as: '))
+                            print("1 = Bella Brawler, 2 = Monty Mischief, "
+                            "3 = Sayo Swift, 4 = Dave Danger\n")
+                            char_num = int(input("Please select the character "
+                            "you want to play as: "))
                             if char_num == 1:
                                 clearing.clear()
-                                print('You selected Bella')
+                                print("You selected Bella")
                                 valid_input = True
                                 return character.select_character(character.bella_brawler)
                             elif char_num == 2:
                                 clearing.clear()
-                                print('You selected Monty')
+                                print("You selected Monty")
                                 valid_input = True
                                 return character.select_character(character.monty_mischief)
                             elif char_num == 3:
                                 clearing.clear()
-                                print('You selected Sayo')
+                                print("You selected Sayo")
                                 valid_input = True
                                 return character.select_character(character.sayo_swift)
                             elif char_num == 4:
                                 clearing.clear()
-                                print('You selected Dave')
+                                print("You selected Dave")
                                 valid_input = True
                                 return character.select_character(character.dave_danger)
                             elif char_num > 4 or char_num < 1:
                                 raise exception.RangeError
                         except ValueError:
                             clearing.clear()
-                            print('Please select a character by entering a number between 1-4\n')
+                            print("Please select a character by entering a number between 1-4\n")
                             valid_input = False
                         except exception.RangeError:
                             clearing.clear()
-                            print('That wasn\'t a number between 1-4. Please try again\n')
+                            print("That wasn\'t a number between 1-4. Please try again\n")
                             valid_input = False
                 if char_options_sel == 1:
                     char_menu_back = True
             char_menu_back = False
         elif start_options_sel == 2:
-            character.player.hp = 0
-            character.opponent.hp = 0
+            character.player.health = 0
+            character.opponent.health = 0
             break
 # Calls the function to randomly assign an opponent
 character.select_opponent()
