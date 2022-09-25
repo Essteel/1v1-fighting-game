@@ -7,9 +7,9 @@ would like to quit or replay the game.
 The game uses simple_term_menu for user input as well as typed
 interaction for some elements of the game.
 
-This script requires the installation of the following packages in
-the Python environment you are running this script in: 'clearing',
-'readchar', 'simple_term_menu', 'random'.
+This script requires the installation of the following third party
+packages in the Python environment you are running this script in:
+'clearing', 'readchar', 'simple_term_menu'.
 
 Raises:
     exception.InputError: raised if the user doesn't enter 'q' or 'a'
